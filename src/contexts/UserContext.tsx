@@ -131,7 +131,7 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const isFavorite = (itemId: string, type: 'archive' | 'tour' | 'product') => {
     if (!user) return false;
     const key = `${type}Items` as keyof typeof user.favorites;
-    return user.favorites[key].includes(itemId);
+    return (user.favorites[key] || []).includes(itemId);
   };
 
   const addQuizResult = (result: QuizResult) => {
