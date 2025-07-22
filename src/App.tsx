@@ -11,8 +11,7 @@ import {
   MapPin, 
   ShoppingBag, 
   BookOpen,
-  User,
-  Heart,
+  ShoppingCart,
   Mountain,
   ScrollText,
   Palette,
@@ -65,8 +64,6 @@ function App() {
       setCurrentPage('marketplace');
     } else if (tabId === 'learn') {
       setCurrentPage('learn');
-    } else if (tabId === 'profile') {
-      setCurrentPage('profile');
     } else {
       setCurrentPage('home');
     }
@@ -108,8 +105,7 @@ function App() {
     { id: 'archive', label: 'Archive', icon: Archive },
     { id: 'tour', label: 'Tour', icon: MapPin },
     { id: 'marketplace', label: 'Marketplace', icon: ShoppingBag },
-    { id: 'learn', label: 'Learn', icon: BookOpen },
-    { id: 'profile', label: 'Profile', icon: User }
+    { id: 'learn', label: 'Learn', icon: BookOpen }
   ];
 
   const ShimmerCard = () => (
@@ -159,9 +155,6 @@ function App() {
     return <LearningPortal onBack={handleBackToHome} />;
   }
 
-  if (currentPage === 'profile') {
-    return <UserProfile onBack={handleBackToHome} />;
-  }
 
   return (
     <div className={`min-h-screen transition-colors duration-300 ${
@@ -175,16 +168,12 @@ function App() {
           <div className="flex items-center justify-between">
             <div>
               <h1 className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>ቅርስ Heritage</h1>
-              <p className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>Welcome back, {user?.name || 'Guest'}</p>
+              <p className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>Shopping Cart</p>
             </div>
             <div className="flex items-center space-x-3">
               <ThemeToggle isDark={isDarkMode} onToggle={() => setIsDarkMode(!isDarkMode)} />
-              <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-amber-500 rounded-full flex items-center justify-center text-white font-semibold">
-                {user?.profilePicture ? (
-                  <img src={user.profilePicture} alt={user.name} className="w-full h-full rounded-full object-cover" />
-                ) : (
-                  user?.name?.charAt(0).toUpperCase() || 'G'
-                )}
+              <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-amber-500 rounded-full flex items-center justify-center text-white">
+                <ShoppingCart size={20} />
               </div>
             </div>
           </div>
