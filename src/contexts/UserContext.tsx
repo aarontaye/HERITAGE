@@ -141,6 +141,7 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const getFavorites = () => {
+    if (!user) return [];
     return favoriteItems.filter(item => {
       const key = `${item.type}Items` as keyof User['favorites'];
       return user?.favorites[key].includes(item.id);
