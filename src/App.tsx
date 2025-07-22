@@ -4,7 +4,6 @@ import CulturalArchive from './components/CulturalArchive';
 import VirtualTour from './components/VirtualTour';
 import Marketplace from './components/Marketplace';
 import LearningPortal from './components/LearningPortal';
-import UserProfile from './components/UserProfile';
 import ThemeToggle from './components/ThemeToggle';
 import { 
   Home, 
@@ -68,8 +67,6 @@ function App() {
       setCurrentPage('learn');
     } else if (tabId === 'profile') {
       setCurrentPage('profile');
-    } else if (tabId === 'favorites') {
-      setCurrentPage('favorites');
     } else {
       setCurrentPage('home');
     }
@@ -112,7 +109,6 @@ function App() {
     { id: 'tour', label: 'Tour', icon: MapPin },
     { id: 'marketplace', label: 'Marketplace', icon: ShoppingBag },
     { id: 'learn', label: 'Learn', icon: BookOpen },
-    { id: 'favorites', label: 'Favorites', icon: Heart },
     { id: 'profile', label: 'Profile', icon: User }
   ];
 
@@ -165,10 +161,6 @@ function App() {
 
   if (currentPage === 'profile') {
     return <UserProfile onBack={handleBackToHome} />;
-  }
-
-  if (currentPage === 'favorites') {
-    return <Favorites onBack={handleBackToHome} />;
   }
 
   return (
