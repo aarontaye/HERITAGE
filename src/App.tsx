@@ -5,7 +5,6 @@ import VirtualTour from './components/VirtualTour';
 import Marketplace from './components/Marketplace';
 import LearningPortal from './components/LearningPortal';
 import UserProfile from './components/UserProfile';
-import Favorites from './components/Favorites';
 import ThemeToggle from './components/ThemeToggle';
 import { 
   Home, 
