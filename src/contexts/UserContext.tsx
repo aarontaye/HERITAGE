@@ -8,7 +8,7 @@ interface UserContextType {
   removeFromFavorites: (itemId: string, type: 'archive' | 'tour' | 'product') => void;
   isFavorite: (itemId: string, type: 'archive' | 'tour' | 'product') => boolean;
   addQuizResult: (result: QuizResult) => void;
-  getFavorites: () => FavoriteItem[];
+  getCartItems: () => FavoriteItem[];
 }
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
@@ -140,7 +140,7 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setUser({ ...user, quizHistory: updatedHistory });
   };
 
-  const getFavorites = () => {
+  const getCartItems = () => {
     if (!user) return [];
     return favoriteItems.filter(item => {
       const key = `${item.type}Items` as keyof User['favorites'];
@@ -156,7 +156,7 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
       removeFromFavorites,
       isFavorite,
       addQuizResult,
-      getFavorites
+      getCartItems
     }}>
       {children}
     </UserContext.Provider>

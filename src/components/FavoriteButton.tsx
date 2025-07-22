@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heart } from 'lucide-react';
+import { ShoppingCart } from 'lucide-react';
 import { useUser } from '../contexts/UserContext';
 import { FavoriteItem } from '../types/user';
 
@@ -22,7 +22,7 @@ const FavoriteButton: React.FC<FavoriteButtonProps> = ({
   size = 'md' 
 }) => {
   const { isFavorite, addToFavorites, removeFromFavorites } = useUser();
-  const isItemFavorite = isFavorite(item.id, type);
+  const isInCart = isFavorite(item.id, type);
 
   const sizeClasses = {
     sm: 'w-6 h-6',
@@ -39,7 +39,7 @@ const FavoriteButton: React.FC<FavoriteButtonProps> = ({
   const handleToggleFavorite = (e: React.MouseEvent) => {
     e.stopPropagation(); // Prevent triggering parent click events
     
-    if (isItemFavorite) {
+    if (isInCart) {
       removeFromFavorites(item.id, type);
     } else {
       const favoriteItem: FavoriteItem = {
@@ -58,15 +58,15 @@ const FavoriteButton: React.FC<FavoriteButtonProps> = ({
     <button
       onClick={handleToggleFavorite}
       className={`${sizeClasses[size]} rounded-full flex items-center justify-center transition-all duration-200 ${
-        isItemFavorite
-          ? 'bg-red-500 text-white hover:bg-red-600'
-          : 'bg-white/80 backdrop-blur-sm text-gray-600 hover:bg-white hover:text-red-500'
+        isInCart
+          ? 'bg-emerald-500 text-white hover:bg-emerald-600'
+          : 'bg-white/80 backdrop-blur-sm text-gray-600 hover:bg-white hover:text-emerald-500'
       } ${className}`}
-      title={isItemFavorite ? 'Remove from favorites' : 'Add to favorites'}
+      title={isInCart ? 'Remove from cart' : 'Add to cart'}
     >
-      <Heart 
+      <ShoppingCart 
         size={iconSizes[size]} 
-        className={isItemFavorite ? 'fill-current' : ''} 
+        className={isInCart ? 'fill-current' : ''} 
       />
     </button>
   );
