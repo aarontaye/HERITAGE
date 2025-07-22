@@ -4,6 +4,7 @@ import CulturalArchive from './components/CulturalArchive';
 import VirtualTour from './components/VirtualTour';
 import Marketplace from './components/Marketplace';
 import LearningPortal from './components/LearningPortal';
+import Cart from './components/Cart';
 import ThemeToggle from './components/ThemeToggle';
 import { 
   Home, 
@@ -155,6 +156,10 @@ function App() {
     return <LearningPortal onBack={handleBackToHome} />;
   }
 
+  if (currentPage === 'cart') {
+    return <Cart onBack={handleBackToHome} />;
+  }
+
 
   return (
     <div className={`min-h-screen transition-colors duration-300 ${
@@ -172,9 +177,12 @@ function App() {
             </div>
             <div className="flex items-center space-x-3">
               <ThemeToggle isDark={isDarkMode} onToggle={() => setIsDarkMode(!isDarkMode)} />
-              <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-amber-500 rounded-full flex items-center justify-center text-white">
+              <button 
+                onClick={() => handleNavigation('cart')}
+                className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-amber-500 rounded-full flex items-center justify-center text-white hover:shadow-lg transition-all"
+              >
                 <ShoppingCart size={20} />
-              </div>
+              </button>
             </div>
           </div>
         </div>

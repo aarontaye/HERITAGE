@@ -248,21 +248,19 @@ const Marketplace: React.FC<MarketplaceProps> = ({ onBack }) => {
   );
 
   const ProductCard = ({ product }: { product: Product }) => (
-    <div 
-      className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 cursor-pointer group"
-      onClick={() => setSelectedProduct(product)}
-    >
+    <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 cursor-pointer group">
       <div className="relative h-48 overflow-hidden">
         <img 
           src={product.imageUrl} 
           alt={product.name}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          onClick={() => setSelectedProduct(product)}
         />
         <div className="absolute top-3 right-3">
           <FavoriteButton item={product} type="product" size="sm" />
         </div>
       </div>
-      <div className="p-4">
+      <div className="p-4" onClick={() => setSelectedProduct(product)}>
         <h3 className="font-semibold text-gray-800 mb-1 group-hover:text-emerald-600 transition-colors">
           {product.name}
         </h3>
