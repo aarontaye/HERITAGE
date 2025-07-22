@@ -160,8 +160,6 @@ const CulturalArchive: React.FC<CulturalArchiveProps> = ({ onBack }) => {
         </div>
         <div className="absolute top-3 right-3">
           <FavoriteButton item={item} type="archive" size="sm" />
-            {categories.find(cat => cat.id === item.category)?.label}
-          </span>
         </div>
       </div>
       <div className="p-4">
