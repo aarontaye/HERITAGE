@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import FavoriteButton from './FavoriteButton';
 import { 
   ArrowLeft, 
   MapPin, 
@@ -169,6 +170,9 @@ const VirtualTour: React.FC<VirtualTourProps> = ({ onBack }) => {
           <div className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
             <Play size={16} className="text-white ml-0.5" />
           </div>
+        </div>
+        <div className="absolute top-4 left-4">
+          <FavoriteButton item={site} type="tour" size="sm" />
         </div>
       </div>
       <div className="p-6">

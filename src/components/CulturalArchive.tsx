@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import FavoriteButton from './FavoriteButton';
 import { 
   ArrowLeft, 
   ScrollText, 
@@ -157,6 +158,11 @@ const CulturalArchive: React.FC<CulturalArchiveProps> = ({ onBack }) => {
             {categories.find(cat => cat.id === item.category)?.label}
           </span>
         </div>
+        <div className="absolute top-3 right-3">
+          <FavoriteButton item={item} type="archive" size="sm" />
+            {categories.find(cat => cat.id === item.category)?.label}
+          </span>
+        </div>
       </div>
       <div className="p-4">
         <h3 className="font-semibold text-gray-800 mb-1 group-hover:text-emerald-600 transition-colors">
@@ -191,6 +197,9 @@ const CulturalArchive: React.FC<CulturalArchiveProps> = ({ onBack }) => {
             }`}>
               {categories.find(cat => cat.id === item.category)?.label}
             </span>
+          </div>
+          <div className="ml-2 flex-shrink-0">
+            <FavoriteButton item={item} type="archive" size="sm" />
           </div>
           <p className="text-gray-600 text-sm mb-2 line-clamp-2">{item.description}</p>
           <div className="flex justify-between items-center text-xs text-gray-500">

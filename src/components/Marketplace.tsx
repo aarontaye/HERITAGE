@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import FavoriteButton from './FavoriteButton';
 import { 
   ArrowLeft, 
   Star, 
@@ -257,9 +258,9 @@ const Marketplace: React.FC<MarketplaceProps> = ({ onBack }) => {
           alt={product.name}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
         />
-        <button className="absolute top-3 right-3 w-8 h-8 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-colors">
-          <Heart size={14} className="text-gray-600" />
-        </button>
+        <div className="absolute top-3 right-3">
+          <FavoriteButton item={product} type="product" size="sm" />
+        </div>
       </div>
       <div className="p-4">
         <h3 className="font-semibold text-gray-800 mb-1 group-hover:text-emerald-600 transition-colors">
@@ -424,9 +425,9 @@ const Marketplace: React.FC<MarketplaceProps> = ({ onBack }) => {
               <h2 className="text-xl font-bold text-gray-800 mb-1">{product.name}</h2>
               <p className="text-emerald-600 text-lg font-semibold">{product.price}</p>
             </div>
-            <button className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition-colors">
-              <Heart size={20} className="text-gray-600" />
-            </button>
+            <div className="flex-shrink-0">
+              <FavoriteButton item={product} type="product" size="md" />
+            </div>
           </div>
           <p className="text-gray-700 mb-4">{product.description}</p>
           <div className="grid grid-cols-2 gap-4 mb-4">

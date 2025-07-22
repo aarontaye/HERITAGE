@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useUser } from '../contexts/UserContext';
 import { 
   ArrowLeft, 
   BookOpen, 
@@ -43,6 +44,7 @@ interface LearningPortalProps {
 
 const LearningPortal: React.FC<LearningPortalProps> = ({ onBack }) => {
   const [isLoading, setIsLoading] = useState(true);
+  const { addQuizResult } = useUser();
   const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
   const [showQuiz, setShowQuiz] = useState(false);
   const [currentQuizIndex, setCurrentQuizIndex] = useState(0);
@@ -200,6 +202,16 @@ const LearningPortal: React.FC<LearningPortalProps> = ({ onBack }) => {
       setSelectedAnswer(null);
       setShowResult(false);
     } else {
+      // Add quiz result to user history
+      const quizResult = {
+        id: Date.now().toString(),
+        quizName: 'Ethiopian Culture Quiz',
+        score,
+        totalQuestions: quizzes.length,
+        completedAt: new Date().toISOString(),
+        timeSpent: 300 // Mock time spent
+      };
+      addQuizResult(quizResult);
       setQuizCompleted(true);
     }
   };

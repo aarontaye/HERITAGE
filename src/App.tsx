@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useUser } from './contexts/UserContext';
 import CulturalArchive from './components/CulturalArchive';
 import VirtualTour from './components/VirtualTour';
 import Marketplace from './components/Marketplace';
 import LearningPortal from './components/LearningPortal';
+import UserProfile from './components/UserProfile';
+import Favorites from './components/Favorites';
 import ThemeToggle from './components/ThemeToggle';
 import { 
   Home, 
@@ -10,6 +13,8 @@ import {
   MapPin, 
   ShoppingBag, 
   BookOpen,
+  User,
+  Heart,
   Mountain,
   ScrollText,
   Palette,
@@ -20,6 +25,7 @@ import {
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const { user } = useUser();
   const [activeTab, setActiveTab] = useState('home');
   const [currentPage, setCurrentPage] = useState('home');
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -61,6 +67,10 @@ function App() {
       setCurrentPage('marketplace');
     } else if (tabId === 'learn') {
       setCurrentPage('learn');
+    } else if (tabId === 'profile') {
+      setCurrentPage('profile');
+    } else if (tabId === 'favorites') {
+      setCurrentPage('favorites');
     } else {
       setCurrentPage('home');
     }
@@ -102,7 +112,9 @@ function App() {
     { id: 'archive', label: 'Archive', icon: Archive },
     { id: 'tour', label: 'Tour', icon: MapPin },
     { id: 'marketplace', label: 'Marketplace', icon: ShoppingBag },
-    { id: 'learn', label: 'Learn', icon: BookOpen }
+    { id: 'learn', label: 'Learn', icon: BookOpen },
+    { id: 'favorites', label: 'Favorites', icon: Heart },
+    { id: 'profile', label: 'Profile', icon: User }
   ];
 
   const ShimmerCard = () => (
@@ -152,6 +164,14 @@ function App() {
     return <LearningPortal onBack={handleBackToHome} />;
   }
 
+  if (currentPage === 'profile') {
+    return <UserProfile onBack={handleBackToHome} />;
+  }
+
+  if (currentPage === 'favorites') {
+    return <Favorites onBack={handleBackToHome} />;
+  }
+
   return (
     <div className={`min-h-screen transition-colors duration-300 ${
       isDarkMode 
@@ -164,12 +184,16 @@ function App() {
           <div className="flex items-center justify-between">
             <div>
               <h1 className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>ቅርስ Heritage</h1>
-              <p className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>Welcome back, Desta</p>
+              <p className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>Welcome back, {user?.name || 'Guest'}</p>
             </div>
             <div className="flex items-center space-x-3">
               <ThemeToggle isDark={isDarkMode} onToggle={() => setIsDarkMode(!isDarkMode)} />
               <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-amber-500 rounded-full flex items-center justify-center text-white font-semibold">
-                D
+                {user?.profilePicture ? (
+                  <img src={user.profilePicture} alt={user.name} className="w-full h-full rounded-full object-cover" />
+                ) : (
+                  user?.name?.charAt(0).toUpperCase() || 'G'
+                )}
               </div>
             </div>
           </div>
@@ -252,7 +276,7 @@ function App() {
 
       {/* Bottom Navigation */}
       <nav className={`fixed bottom-0 left-0 right-0 ${isDarkMode ? 'bg-gray-900 border-gray-700' : 'bg-white border-gray-100'} border-t px-6 py-3`}>
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between overflow-x-auto">
           {navigationItems.map((item) => (
             <button
               key={item.id}
