@@ -245,7 +245,7 @@ function App() {
               </div>
               <div className="h-48 rounded-xl mb-4 overflow-hidden">
                 <img 
-                  src="https://media.istockphoto.com/id/618056636/photo/bete-abba-libanos-rock-hewn-church-lalibela-ethiopia.jpg" 
+                  src="https://media.istockphoto.com/id/618056636/photo/bete-abba-libanos-rock-hewn-church-lalibela-ethiopia.jpg?b=1&s=612x612&w=0&k=20&c=0lAdVW0F3KjBtSBY4BMM_JFyP-WliruyDWoxH15Ui7M=" 
                   alt="Rock-Hewn Churches of Lalibela"
                   className="w-full h-full object-cover"
                 />
