@@ -45,9 +45,9 @@ const VirtualTour: React.FC<VirtualTourProps> = ({ onBack }) => {
       significance: 'UNESCO World Heritage Site and active pilgrimage destination',
       imageUrl: 'https://media.istockphoto.com/id/530628231/photo/church-of-st-george-unesco-world-heritage-lalibela-ethiopia.jpg?b=1&s=612x612&w=0&k=20&c=87hIk5lWuUVQudD8ZU75MjQKz3d3tHWmkTSGSnW3N84=',
       galleryImages: [
-        'https://media.istockphoto.com/id/530628231/photo/church-of-st-george-unesco-world-heritage-lalibela-ethiopia.jpg',
-        'https://media.istockphoto.com/id/618056636/photo/bete-abba-libanos-rock-hewn-church-lalibela-ethiopia.jpg',
-        'https://images.pexels.com/photos/30327295/pexels-photo-30327295.jpeg'
+        'https://media.istockphoto.com/id/530628231/photo/church-of-st-george-unesco-world-heritage-lalibela-ethiopia.jpg?b=1&s=612x612&w=0&k=20&c=87hIk5lWuUVQudD8ZU75MjQKz3d3tHWmkTSGSnW3N84=',
+        'https://media.istockphoto.com/id/530628231/photo/church-of-st-george-unesco-world-heritage-lalibela-ethiopia.jpg?b=1&s=612x612&w=0&k=20&c=87hIk5lWuUVQudD8ZU75MjQKz3d3tHWmkTSGSnW3N84=',
+        'https://media.istockphoto.com/id/530628231/photo/church-of-st-george-unesco-world-heritage-lalibela-ethiopia.jpg?b=1&s=612x612&w=0&k=20&c=87hIk5lWuUVQudD8ZU75MjQKz3d3tHWmkTSGSnW3N84='
       ],
       facts: [
         'Carved from single pieces of volcanic rock',
