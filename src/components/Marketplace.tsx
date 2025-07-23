@@ -138,7 +138,7 @@ const Marketplace: React.FC<MarketplaceProps> = ({ onBack }) => {
       artisanId: '2',
       artisanName: 'Bekele Worku',
       price: '$45 - $85',
-      imageUrl: 'https://media.istockphoto.com/id/1735666451/photo/bet-giyorgis-rock-hewn-church-in-the-night-with-the-moon-in-lalibela-ethiopia.jpg',
+      imageUrl: 'https://media.istockphoto.com/id/1735666451/photo/bet-giyorgis-rock-hewn-church-in-the-night-with-the-moon-in-lalibela-ethiopia.jpg?b=1&s=612x612&w=0&k=20&c=6EVaSIFUHMGlPkR06M-iWYl7CgmTJKpaB5X5GtHRJK8=',
       category: 'woodwork',
       materials: ['Olive Wood', 'Natural Finish'],
       craftTime: '1 week'
