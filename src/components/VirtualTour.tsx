@@ -69,7 +69,7 @@ const VirtualTour: React.FC<VirtualTourProps> = ({ onBack }) => {
       galleryImages: [
         'https://media.istockphoto.com/id/1173442743/photo/the-northern-stelae-park-of-aksum-famous-obelisks-in-axum-ethiopia.jpg?b=1&s=612x612&w=0&k=20&c=GuFUL8PmrlQdf_oGvc3nFU-AnDeGrmWjTanf2PPlJ_c=',
         'https://media.istockphoto.com/id/1173442743/photo/the-northern-stelae-park-of-aksum-famous-obelisks-in-axum-ethiopia.jpg?b=1&s=612x612&w=0&k=20&c=GuFUL8PmrlQdf_oGvc3nFU-AnDeGrmWjTanf2PPlJ_c=',
-        'https://images.pexels.com/photos/30327295/pexels-photo-30327295.jpeg'
+        'https://media.istockphoto.com/id/1173442743/photo/the-northern-stelae-park-of-aksum-famous-obelisks-in-axum-ethiopia.jpg?b=1&s=612x612&w=0&k=20&c=GuFUL8PmrlQdf_oGvc3nFU-AnDeGrmWjTanf2PPlJ_c='
       ],
       facts: [
         'Home to the largest ancient obelisk in the world',
