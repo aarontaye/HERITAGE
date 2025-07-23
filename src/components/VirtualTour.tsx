@@ -90,8 +90,8 @@ const VirtualTour: React.FC<VirtualTourProps> = ({ onBack }) => {
       imageUrl: 'https://images.pexels.com/photos/17853346/pexels-photo-17853346.jpeg',
       galleryImages: [
         'https://images.pexels.com/photos/17853346/pexels-photo-17853346.jpeg',
-        'https://images.pexels.com/photos/30327295/pexels-photo-30327295.jpeg',
-        'https://media.istockphoto.com/id/530628231/photo/church-of-st-george-unesco-world-heritage-lalibela-ethiopia.jpg'
+        'https://images.pexels.com/photos/17853346/pexels-photo-17853346.jpeg',
+        'https://images.pexels.com/photos/17853346/pexels-photo-17853346.jpeg'
       ],
       facts: [
         'Blend of Ethiopian, Portuguese, and Moorish architecture',
