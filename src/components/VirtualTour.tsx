@@ -69,7 +69,7 @@ const VirtualTour: React.FC<VirtualTourProps> = ({ onBack }) => {
       galleryImages: [
         'https://media.istockphoto.com/id/1173442743/photo/the-northern-stelae-park-of-aksum-famous-obelisks-in-axum-ethiopia.jpg?b=1&s=612x612&w=0&k=20&c=GuFUL8PmrlQdf_oGvc3nFU-AnDeGrmWjTanf2PPlJ_c=',
         'https://media.istockphoto.com/id/1173442743/photo/the-northern-stelae-park-of-aksum-famous-obelisks-in-axum-ethiopia.jpg?b=1&s=612x612&w=0&k=20&c=GuFUL8PmrlQdf_oGvc3nFU-AnDeGrmWjTanf2PPlJ_c=',
-        'https://media.istockphoto.com/id/1173442743/photo/the-northern-stelae-park-of-aksum-famous-obelisks-in-axum-ethiopia.jpg?b=1&s=612x612&w=0&k=20&c=GuFUL8PmrlQdf_oGvc3nFU-AnDeGrmWjTanf2PPlJ_c='
+        'https://images.pexels.com/photos/30327295/pexels-photo-30327295.jpeg'
       ],
       facts: [
         'Home to the largest ancient obelisk in the world',
@@ -109,13 +109,11 @@ const VirtualTour: React.FC<VirtualTourProps> = ({ onBack }) => {
       description: 'Ancient walled city known as the fourth holiest city in Islam, with unique cultural traditions.',
       historicalPeriod: '13th Century onwards',
       significance: 'Cultural crossroads and center of Islamic learning',
-      imageUrl: 'https://media.istockphoto.com/id/506194357/photo/harar-jugol.jpg?b=1&s=612x612&w=0&k=20&c=xQO0Gcfm8EJO3hltpQ8021Zy7oI_KatrRqR1XjJHeIU=
-',
+      imageUrl: 'https://media.istockphoto.com/id/506194357/photo/harar-jugol.jpg',
       galleryImages: [
-        'https://media.istockphoto.com/id/506194357/photo/harar-jugol.jpg?b=1&s=612x612&w=0&k=20&c=xQO0Gcfm8EJO3hltpQ8021Zy7oI_KatrRqR1XjJHeIU=',
-        'https://media.istockphoto.com/id/506194357/photo/harar-jugol.jpg?b=1&s=612x612&w=0&k=20&c=xQO0Gcfm8EJO3hltpQ8021Zy7oI_KatrRqR1XjJHeIU=',
-        'https://media.istockphoto.com/id/506194357/photo/harar-jugol.jpg?b=1&s=612x612&w=0&k=20&c=xQO0Gcfm8EJO3hltpQ8021Zy7oI_KatrRqR1XjJHeIU=
-'
+        'https://media.istockphoto.com/id/506194357/photo/harar-jugol.jpg',
+        'https://images.pexels.com/photos/30327295/pexels-photo-30327295.jpeg',
+        'https://media.istockphoto.com/id/601363406/photo/african-woman-holding-basket-full-of-coffee-cherries-east-africa.jpg'
       ],
       facts: [
         '368 alleyways within ancient walls',
