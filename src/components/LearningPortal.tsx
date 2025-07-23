@@ -64,7 +64,7 @@ const LearningPortal: React.FC<LearningPortalProps> = ({ onBack }) => {
       lessons: 20,
       students: 1247,
       rating: 4.8,
-      imageUrl: 'https://images.pexels.com/photos/1029141/pexels-photo-1029141.jpeg?auto=compress&cs=tinysrgb&w=400',
+      imageUrl: 'https://m.media-amazon.com/images/I/51F0igx13FL._SL10_UR1600,800_CR200,50,1200,630_CLa%7C1200,630%7C51F0igx13FL.jpg',
       progress: 35
     },
     {
@@ -77,7 +77,7 @@ const LearningPortal: React.FC<LearningPortalProps> = ({ onBack }) => {
       lessons: 30,
       students: 892,
       rating: 4.9,
-      imageUrl: 'https://images.pexels.com/photos/5011647/pexels-photo-5011647.jpeg?auto=compress&cs=tinysrgb&w=400'
+      imageUrl: 'https://media.istockphoto.com/id/1128000925/photo/azwa-mariam-monastery.jpg'
     },
     {
       id: '3',
@@ -89,7 +89,7 @@ const LearningPortal: React.FC<LearningPortalProps> = ({ onBack }) => {
       lessons: 12,
       students: 2156,
       rating: 4.7,
-      imageUrl: 'https://images.pexels.com/photos/894695/pexels-photo-894695.jpeg?auto=compress&cs=tinysrgb&w=400'
+      imageUrl: 'https://media.istockphoto.com/id/601363406/photo/african-woman-holding-basket-full-of-coffee-cherries-east-africa.jpg'
     },
     {
       id: '4',
@@ -101,7 +101,7 @@ const LearningPortal: React.FC<LearningPortalProps> = ({ onBack }) => {
       lessons: 15,
       students: 743,
       rating: 4.6,
-      imageUrl: 'https://images.pexels.com/photos/3408744/pexels-photo-3408744.jpeg?auto=compress&cs=tinysrgb&w=400'
+      imageUrl: 'https://media.istockphoto.com/id/1045923086/photo/feet-of-hamer-ladies-dancing-omo-valley-in-ethiopia.jpg'
     },
     {
       id: '5',
@@ -113,7 +113,7 @@ const LearningPortal: React.FC<LearningPortalProps> = ({ onBack }) => {
       lessons: 25,
       students: 567,
       rating: 4.8,
-      imageUrl: 'https://images.pexels.com/photos/8728380/pexels-photo-8728380.jpeg?auto=compress&cs=tinysrgb&w=400'
+      imageUrl: 'https://images.pexels.com/photos/20865976/pexels-photo-20865976.jpeg'
     },
     {
       id: '6',
@@ -125,7 +125,7 @@ const LearningPortal: React.FC<LearningPortalProps> = ({ onBack }) => {
       lessons: 40,
       students: 234,
       rating: 4.9,
-      imageUrl: 'https://images.pexels.com/photos/1029141/pexels-photo-1029141.jpeg?auto=compress&cs=tinysrgb&w=400'
+      imageUrl: 'https://media.istockphoto.com/id/591847376/photo/geez-script.jpg'
     }
   ];
 

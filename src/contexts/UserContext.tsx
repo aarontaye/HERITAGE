@@ -60,7 +60,7 @@ const mockFavoriteItems: FavoriteItem[] = [
     type: 'archive',
     title: 'Book of Enoch',
     description: 'Ancient Ethiopian manuscript containing apocryphal texts',
-    imageUrl: 'https://images.pexels.com/photos/1029141/pexels-photo-1029141.jpeg?auto=compress&cs=tinysrgb&w=400',
+    imageUrl: 'https://mefthe.com/wp-content/uploads/2015/12/51EODEjrl7L-325x500.jpg',
     addedAt: '2024-12-10T10:00:00Z'
   },
   {
@@ -68,7 +68,7 @@ const mockFavoriteItems: FavoriteItem[] = [
     type: 'archive',
     title: 'Lalibela Cross',
     description: 'Ornate processional cross from the medieval period',
-    imageUrl: 'https://images.pexels.com/photos/8728380/pexels-photo-8728380.jpeg?auto=compress&cs=tinysrgb&w=400',
+    imageUrl: 'https://media.istockphoto.com/id/1305435687/photo/lalibela-ethiopia-famous-rock-hewn-church-of-saint-george-bete-giyorgis.jpg',
     addedAt: '2024-12-12T15:30:00Z'
   },
   {
@@ -76,7 +76,7 @@ const mockFavoriteItems: FavoriteItem[] = [
     type: 'tour',
     title: 'Rock-Hewn Churches of Lalibela',
     description: 'Eleven medieval monolithic churches carved directly into the volcanic rock',
-    imageUrl: 'https://images.pexels.com/photos/5011647/pexels-photo-5011647.jpeg?auto=compress&cs=tinysrgb&w=800',
+    imageUrl: 'https://media.istockphoto.com/id/530628231/photo/church-of-st-george-unesco-world-heritage-lalibela-ethiopia.jpg',
     addedAt: '2024-12-08T09:15:00Z'
   },
   {
@@ -84,7 +84,7 @@ const mockFavoriteItems: FavoriteItem[] = [
     type: 'product',
     title: 'Handwoven Habesha Kemis',
     description: 'Traditional Ethiopian dress with intricate border patterns',
-    imageUrl: 'https://images.pexels.com/photos/3408744/pexels-photo-3408744.jpeg?auto=compress&cs=tinysrgb&w=400',
+    imageUrl: 'https://media.istockphoto.com/id/2195463329/photo/traditional-ethiopian-kemis-a-white-dress-with-colorful-embroidery-worn-by-women-during-the.jpg',
     addedAt: '2024-12-14T11:45:00Z'
   },
   {
@@ -92,7 +92,7 @@ const mockFavoriteItems: FavoriteItem[] = [
     type: 'product',
     title: 'Lalibela Cross',
     description: 'Hand-carved wooden cross inspired by ancient designs',
-    imageUrl: 'https://images.pexels.com/photos/1029141/pexels-photo-1029141.jpeg?auto=compress&cs=tinysrgb&w=400',
+    imageUrl: 'https://media.istockphoto.com/id/1735666451/photo/bet-giyorgis-rock-hewn-church-in-the-night-with-the-moon-in-lalibela-ethiopia.jpg',
     addedAt: '2024-12-13T16:20:00Z'
   }
 ];

@@ -72,7 +72,7 @@ const Marketplace: React.FC<MarketplaceProps> = ({ onBack }) => {
       bio: 'Master weaver with 25 years of experience creating traditional Ethiopian textiles. Specializes in handwoven cotton and silk fabrics with intricate patterns.',
       rating: 4.9,
       reviewCount: 127,
-      imageUrl: 'https://images.pexels.com/photos/3408744/pexels-photo-3408744.jpeg?auto=compress&cs=tinysrgb&w=400',
+      imageUrl: 'https://images.pexels.com/photos/30327295/pexels-photo-30327295.jpeg',
       crafts: ['Habesha Kemis', 'Netela', 'Traditional Scarves'],
       experience: '25+ years',
       verified: true
@@ -85,7 +85,7 @@ const Marketplace: React.FC<MarketplaceProps> = ({ onBack }) => {
       bio: 'Renowned wood carver creating religious artifacts and decorative pieces. His work is inspired by the ancient churches of Lalibela.',
       rating: 4.8,
       reviewCount: 89,
-      imageUrl: 'https://images.pexels.com/photos/1029141/pexels-photo-1029141.jpeg?auto=compress&cs=tinysrgb&w=400',
+      imageUrl: 'https://images.pexels.com/photos/30327295/pexels-photo-30327295.jpeg',
       crafts: ['Religious Crosses', 'Decorative Panels', 'Traditional Furniture'],
       experience: '20+ years',
       verified: true
@@ -98,7 +98,7 @@ const Marketplace: React.FC<MarketplaceProps> = ({ onBack }) => {
       bio: 'Third-generation silversmith creating traditional Ethiopian jewelry with modern touches. Known for intricate filigree work.',
       rating: 4.9,
       reviewCount: 156,
-      imageUrl: 'https://images.pexels.com/photos/8728380/pexels-photo-8728380.jpeg?auto=compress&cs=tinysrgb&w=400',
+      imageUrl: 'https://images.pexels.com/photos/30327295/pexels-photo-30327295.jpeg',
       crafts: ['Traditional Necklaces', 'Earrings', 'Bracelets'],
       experience: '15+ years',
       verified: true
@@ -111,7 +111,7 @@ const Marketplace: React.FC<MarketplaceProps> = ({ onBack }) => {
       bio: 'Traditional potter creating functional and decorative ceramics using ancient techniques passed down through generations.',
       rating: 4.7,
       reviewCount: 73,
-      imageUrl: 'https://images.pexels.com/photos/5011647/pexels-photo-5011647.jpeg?auto=compress&cs=tinysrgb&w=400',
+      imageUrl: 'https://images.pexels.com/photos/30327295/pexels-photo-30327295.jpeg',
       crafts: ['Coffee Ceremony Sets', 'Decorative Vases', 'Traditional Bowls'],
       experience: '18+ years',
       verified: false
@@ -126,7 +126,7 @@ const Marketplace: React.FC<MarketplaceProps> = ({ onBack }) => {
       artisanId: '1',
       artisanName: 'Almaz Tadesse',
       price: '$120 - $180',
-      imageUrl: 'https://images.pexels.com/photos/3408744/pexels-photo-3408744.jpeg?auto=compress&cs=tinysrgb&w=400',
+      imageUrl: 'https://media.istockphoto.com/id/2195463329/photo/traditional-ethiopian-kemis-a-white-dress-with-colorful-embroidery-worn-by-women-during-the.jpg',
       category: 'textiles',
       materials: ['100% Cotton', 'Natural Dyes'],
       craftTime: '2-3 weeks'
@@ -138,7 +138,7 @@ const Marketplace: React.FC<MarketplaceProps> = ({ onBack }) => {
       artisanId: '2',
       artisanName: 'Bekele Worku',
       price: '$45 - $85',
-      imageUrl: 'https://images.pexels.com/photos/1029141/pexels-photo-1029141.jpeg?auto=compress&cs=tinysrgb&w=400',
+      imageUrl: 'https://media.istockphoto.com/id/1735666451/photo/bet-giyorgis-rock-hewn-church-in-the-night-with-the-moon-in-lalibela-ethiopia.jpg',
       category: 'woodwork',
       materials: ['Olive Wood', 'Natural Finish'],
       craftTime: '1 week'
@@ -150,7 +150,7 @@ const Marketplace: React.FC<MarketplaceProps> = ({ onBack }) => {
       artisanId: '3',
       artisanName: 'Hanan Mohammed',
       price: '$95 - $150',
-      imageUrl: 'https://images.pexels.com/photos/8728380/pexels-photo-8728380.jpeg?auto=compress&cs=tinysrgb&w=400',
+      imageUrl: 'https://media.istockphoto.com/id/885749794/photo/ethiopian-cross-necklace-with-old-handmade-glass-beads.jpg',
       category: 'jewelry',
       materials: ['Sterling Silver', 'Traditional Techniques'],
       craftTime: '2 weeks'
@@ -162,7 +162,7 @@ const Marketplace: React.FC<MarketplaceProps> = ({ onBack }) => {
       artisanId: '4',
       artisanName: 'Desta Abebe',
       price: '$65 - $95',
-      imageUrl: 'https://images.pexels.com/photos/5011647/pexels-photo-5011647.jpeg?auto=compress&cs=tinysrgb&w=400',
+      imageUrl: 'https://media.istockphoto.com/id/629802306/photo/young-african-girl-preparing-coffee-ethiopia-east-africa.jpg',
       category: 'pottery',
       materials: ['Local Clay', 'Natural Glazes'],
       craftTime: '10 days'

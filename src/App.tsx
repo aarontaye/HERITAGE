@@ -243,11 +243,12 @@ function App() {
                   <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} text-sm`}>UNESCO World Heritage Site</p>
                 </div>
               </div>
-              <div className={`h-48 ${isDarkMode ? 'bg-gradient-to-br from-amber-900/20 to-orange-900/20' : 'bg-gradient-to-br from-amber-100 to-orange-100'} rounded-xl mb-4 flex items-center justify-center`}>
-                <div className={`text-center ${isDarkMode ? 'text-amber-400' : 'text-amber-600'}`}>
-                  <Mountain size={48} className="mx-auto mb-2" />
-                  <p className="text-sm">Historical imagery would appear here</p>
-                </div>
+              <div className="h-48 rounded-xl mb-4 overflow-hidden">
+                <img 
+                  src="https://media.istockphoto.com/id/618056636/photo/bete-abba-libanos-rock-hewn-church-lalibela-ethiopia.jpg" 
+                  alt="Rock-Hewn Churches of Lalibela"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-700'} text-sm leading-relaxed mb-4`}>
                 Discover the magnificent 13th-century churches carved entirely from solid volcanic rock. 

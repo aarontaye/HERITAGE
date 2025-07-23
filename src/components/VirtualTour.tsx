@@ -43,11 +43,11 @@ const VirtualTour: React.FC<VirtualTourProps> = ({ onBack }) => {
       description: 'Eleven medieval monolithic churches carved directly into the volcanic rock, representing a New Jerusalem.',
       historicalPeriod: '12th-13th Century',
       significance: 'UNESCO World Heritage Site and active pilgrimage destination',
-      imageUrl: 'https://images.pexels.com/photos/5011647/pexels-photo-5011647.jpeg?auto=compress&cs=tinysrgb&w=800',
+      imageUrl: 'https://media.istockphoto.com/id/530628231/photo/church-of-st-george-unesco-world-heritage-lalibela-ethiopia.jpg',
       galleryImages: [
-        'https://images.pexels.com/photos/5011647/pexels-photo-5011647.jpeg?auto=compress&cs=tinysrgb&w=800',
-        'https://images.pexels.com/photos/3408744/pexels-photo-3408744.jpeg?auto=compress&cs=tinysrgb&w=800',
-        'https://images.pexels.com/photos/1029141/pexels-photo-1029141.jpeg?auto=compress&cs=tinysrgb&w=800'
+        'https://media.istockphoto.com/id/530628231/photo/church-of-st-george-unesco-world-heritage-lalibela-ethiopia.jpg',
+        'https://media.istockphoto.com/id/618056636/photo/bete-abba-libanos-rock-hewn-church-lalibela-ethiopia.jpg',
+        'https://images.pexels.com/photos/30327295/pexels-photo-30327295.jpeg'
       ],
       facts: [
         'Carved from single pieces of volcanic rock',
@@ -65,11 +65,11 @@ const VirtualTour: React.FC<VirtualTourProps> = ({ onBack }) => {
       description: 'Former capital of the Axumite Empire, featuring towering granite obelisks and ancient ruins.',
       historicalPeriod: '1st-8th Century AD',
       significance: 'Birthplace of Ethiopian civilization and Christianity',
-      imageUrl: 'https://images.pexels.com/photos/8728380/pexels-photo-8728380.jpeg?auto=compress&cs=tinysrgb&w=800',
+      imageUrl: 'https://media.istockphoto.com/id/1173442743/photo/the-northern-stelae-park-of-aksum-famous-obelisks-in-axum-ethiopia.jpg',
       galleryImages: [
-        'https://images.pexels.com/photos/8728380/pexels-photo-8728380.jpeg?auto=compress&cs=tinysrgb&w=800',
-        'https://images.pexels.com/photos/5011647/pexels-photo-5011647.jpeg?auto=compress&cs=tinysrgb&w=800',
-        'https://images.pexels.com/photos/3408744/pexels-photo-3408744.jpeg?auto=compress&cs=tinysrgb&w=800'
+        'https://media.istockphoto.com/id/1173442743/photo/the-northern-stelae-park-of-aksum-famous-obelisks-in-axum-ethiopia.jpg',
+        'https://media.istockphoto.com/id/186914973/photo/obelisk-in-the-aksum-kingdom-ethiopia.jpg',
+        'https://images.pexels.com/photos/30327295/pexels-photo-30327295.jpeg'
       ],
       facts: [
         'Home to the largest ancient obelisk in the world',
@@ -87,11 +87,11 @@ const VirtualTour: React.FC<VirtualTourProps> = ({ onBack }) => {
       description: 'Former imperial capital featuring castles, palaces, and churches from the 17th-18th centuries.',
       historicalPeriod: '17th-18th Century',
       significance: 'Ethiopian Camelot with unique architectural fusion',
-      imageUrl: 'https://images.pexels.com/photos/3408744/pexels-photo-3408744.jpeg?auto=compress&cs=tinysrgb&w=800',
+      imageUrl: 'https://images.pexels.com/photos/17853346/pexels-photo-17853346.jpeg',
       galleryImages: [
-        'https://images.pexels.com/photos/3408744/pexels-photo-3408744.jpeg?auto=compress&cs=tinysrgb&w=800',
-        'https://images.pexels.com/photos/1029141/pexels-photo-1029141.jpeg?auto=compress&cs=tinysrgb&w=800',
-        'https://images.pexels.com/photos/8728380/pexels-photo-8728380.jpeg?auto=compress&cs=tinysrgb&w=800'
+        'https://images.pexels.com/photos/17853346/pexels-photo-17853346.jpeg',
+        'https://images.pexels.com/photos/30327295/pexels-photo-30327295.jpeg',
+        'https://media.istockphoto.com/id/530628231/photo/church-of-st-george-unesco-world-heritage-lalibela-ethiopia.jpg'
       ],
       facts: [
         'Blend of Ethiopian, Portuguese, and Moorish architecture',
@@ -109,11 +109,11 @@ const VirtualTour: React.FC<VirtualTourProps> = ({ onBack }) => {
       description: 'Ancient walled city known as the fourth holiest city in Islam, with unique cultural traditions.',
       historicalPeriod: '13th Century onwards',
       significance: 'Cultural crossroads and center of Islamic learning',
-      imageUrl: 'https://images.pexels.com/photos/1029141/pexels-photo-1029141.jpeg?auto=compress&cs=tinysrgb&w=800',
+      imageUrl: 'https://media.istockphoto.com/id/506194357/photo/harar-jugol.jpg',
       galleryImages: [
-        'https://images.pexels.com/photos/1029141/pexels-photo-1029141.jpeg?auto=compress&cs=tinysrgb&w=800',
-        'https://images.pexels.com/photos/5011647/pexels-photo-5011647.jpeg?auto=compress&cs=tinysrgb&w=800',
-        'https://images.pexels.com/photos/3408744/pexels-photo-3408744.jpeg?auto=compress&cs=tinysrgb&w=800'
+        'https://media.istockphoto.com/id/506194357/photo/harar-jugol.jpg',
+        'https://images.pexels.com/photos/30327295/pexels-photo-30327295.jpeg',
+        'https://media.istockphoto.com/id/601363406/photo/african-woman-holding-basket-full-of-coffee-cherries-east-africa.jpg'
       ],
       facts: [
         '368 alleyways within ancient walls',

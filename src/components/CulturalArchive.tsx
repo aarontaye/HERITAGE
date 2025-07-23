@@ -46,7 +46,7 @@ const CulturalArchive: React.FC<CulturalArchiveProps> = ({ onBack }) => {
       title: 'Book of Enoch',
       description: 'Ancient Ethiopian manuscript containing apocryphal texts',
       category: 'manuscripts',
-      imageUrl: 'https://images.pexels.com/photos/1029141/pexels-photo-1029141.jpeg?auto=compress&cs=tinysrgb&w=400',
+      imageUrl: 'https://mefthe.com/wp-content/uploads/2015/12/51EODEjrl7L-325x500.jpg',
       date: '4th Century',
       location: 'Axum'
     },
@@ -55,7 +55,7 @@ const CulturalArchive: React.FC<CulturalArchiveProps> = ({ onBack }) => {
       title: 'Queen of Sheba Legend',
       description: 'The legendary tale of Queen Makeda and King Solomon',
       category: 'stories',
-      imageUrl: 'https://images.pexels.com/photos/3408744/pexels-photo-3408744.jpeg?auto=compress&cs=tinysrgb&w=400',
+      imageUrl: 'https://www.ancient-origins.net/sites/default/files/field/image/Queen-of-Sheba.jpg',
       date: '10th Century BC',
       location: 'Axum'
     },
@@ -64,7 +64,7 @@ const CulturalArchive: React.FC<CulturalArchiveProps> = ({ onBack }) => {
       title: 'Lalibela Cross',
       description: 'Ornate processional cross from the medieval period',
       category: 'artifacts',
-      imageUrl: 'https://images.pexels.com/photos/8728380/pexels-photo-8728380.jpeg?auto=compress&cs=tinysrgb&w=400',
+      imageUrl: 'https://media.istockphoto.com/id/1305435687/photo/lalibela-ethiopia-famous-rock-hewn-church-of-saint-george-bete-giyorgis.jpg',
       date: '12th Century',
       location: 'Lalibela'
     },
@@ -73,7 +73,7 @@ const CulturalArchive: React.FC<CulturalArchiveProps> = ({ onBack }) => {
       title: 'Rock Churches of Lalibela',
       description: 'Monolithic churches carved from solid rock',
       category: 'places',
-      imageUrl: 'https://images.pexels.com/photos/5011647/pexels-photo-5011647.jpeg?auto=compress&cs=tinysrgb&w=400',
+      imageUrl: 'https://media.istockphoto.com/id/618056636/photo/bete-abba-libanos-rock-hewn-church-lalibela-ethiopia.jpg',
       date: '12th Century',
       location: 'Lalibela'
     },
@@ -82,7 +82,7 @@ const CulturalArchive: React.FC<CulturalArchiveProps> = ({ onBack }) => {
       title: 'Kebra Nagast',
       description: 'The Glory of the Kings - Ethiopian national epic',
       category: 'manuscripts',
-      imageUrl: 'https://images.pexels.com/photos/1029141/pexels-photo-1029141.jpeg?auto=compress&cs=tinysrgb&w=400',
+      imageUrl: 'https://imgv2-1-f.scribdassets.com/img/word_document/859219487/original/216x287/f926990f2c/1746768006?v=1',
       date: '14th Century',
       location: 'Various monasteries'
     },
@@ -91,7 +91,7 @@ const CulturalArchive: React.FC<CulturalArchiveProps> = ({ onBack }) => {
       title: 'Coffee Origin Story',
       description: 'The legend of Kaldi and the dancing goats',
       category: 'stories',
-      imageUrl: 'https://images.pexels.com/photos/894695/pexels-photo-894695.jpeg?auto=compress&cs=tinysrgb&w=400',
+      imageUrl: 'https://www.thespruceeats.com/thmb/DFwO2OZTr1v7tk6f3EjDX_G50XM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Coffee-beans-in-sack-582cd4c93df78c6f6a9f903a.jpg',
       date: '9th Century',
       location: 'Kaffa Province'
     },
@@ -100,7 +100,7 @@ const CulturalArchive: React.FC<CulturalArchiveProps> = ({ onBack }) => {
       title: 'Axum Obelisks',
       description: 'Ancient granite stelae marking royal tombs',
       category: 'places',
-      imageUrl: 'https://images.pexels.com/photos/5011647/pexels-photo-5011647.jpeg?auto=compress&cs=tinysrgb&w=400',
+      imageUrl: 'https://media.istockphoto.com/id/186914973/photo/obelisk-in-the-aksum-kingdom-ethiopia.jpg',
       date: '4th Century',
       location: 'Axum'
     },
@@ -109,7 +109,7 @@ const CulturalArchive: React.FC<CulturalArchiveProps> = ({ onBack }) => {
       title: 'Traditional Habesha Kemis',
       description: 'Handwoven cotton dress with intricate borders',
       category: 'artifacts',
-      imageUrl: 'https://images.pexels.com/photos/8728380/pexels-photo-8728380.jpeg?auto=compress&cs=tinysrgb&w=400',
+      imageUrl: 'https://images.pexels.com/photos/19113143/pexels-photo-19113143.jpeg',
       date: 'Traditional',
       location: 'Various regions'
     }
