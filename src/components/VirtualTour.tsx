@@ -111,7 +111,7 @@ const VirtualTour: React.FC<VirtualTourProps> = ({ onBack }) => {
       significance: 'Cultural crossroads and center of Islamic learning',
       imageUrl: 'https://media.istockphoto.com/id/506194357/photo/harar-jugol.jpg?b=1&s=612x612&w=0&k=20&c=xQO0Gcfm8EJO3hltpQ8021Zy7oI_KatrRqR1XjJHeIU=',
       galleryImages: [
-        'https://media.istockphoto.com/id/506194357/photo/harar-jugol.jpg',
+        'https://media.istockphoto.com/id/506194357/photo/harar-jugol.jpg?b=1&s=612x612&w=0&k=20&c=xQO0Gcfm8EJO3hltpQ8021Zy7oI_KatrRqR1XjJHeIU=',
         'https://images.pexels.com/photos/30327295/pexels-photo-30327295.jpeg',
         'https://media.istockphoto.com/id/601363406/photo/african-woman-holding-basket-full-of-coffee-cherries-east-africa.jpg'
       ],
