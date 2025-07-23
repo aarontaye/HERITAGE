@@ -65,7 +65,7 @@ const VirtualTour: React.FC<VirtualTourProps> = ({ onBack }) => {
       description: 'Former capital of the Axumite Empire, featuring towering granite obelisks and ancient ruins.',
       historicalPeriod: '1st-8th Century AD',
       significance: 'Birthplace of Ethiopian civilization and Christianity',
-      imageUrl: 'https://media.istockphoto.com/id/1173442743/photo/the-northern-stelae-park-of-aksum-famous-obelisks-in-axum-ethiopia.jpg',
+      imageUrl: 'https://media.istockphoto.com/id/1173442743/photo/the-northern-stelae-park-of-aksum-famous-obelisks-in-axum-ethiopia.jpg?b=1&s=612x612&w=0&k=20&c=GuFUL8PmrlQdf_oGvc3nFU-AnDeGrmWjTanf2PPlJ_c=',
       galleryImages: [
         'https://media.istockphoto.com/id/1173442743/photo/the-northern-stelae-park-of-aksum-famous-obelisks-in-axum-ethiopia.jpg',
         'https://media.istockphoto.com/id/186914973/photo/obelisk-in-the-aksum-kingdom-ethiopia.jpg',
