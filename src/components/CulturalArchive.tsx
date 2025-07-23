@@ -100,7 +100,7 @@ const CulturalArchive: React.FC<CulturalArchiveProps> = ({ onBack }) => {
       title: 'Axum Obelisks',
       description: 'Ancient granite stelae marking royal tombs',
       category: 'places',
-      imageUrl: 'https://media.istockphoto.com/id/186914973/photo/obelisk-in-the-aksum-kingdom-ethiopia.jpg',
+      imageUrl: '\\10.10.20.76',
       date: '4th Century',
       location: 'Axum'
     },
