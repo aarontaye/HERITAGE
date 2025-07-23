@@ -64,7 +64,7 @@ const CulturalArchive: React.FC<CulturalArchiveProps> = ({ onBack }) => {
       title: 'Lalibela Cross',
       description: 'Ornate processional cross from the medieval period',
       category: 'artifacts',
-      imageUrl: 'https://media.istockphoto.com/id/1305435687/photo/lalibela-ethiopia-famous-rock-hewn-church-of-saint-george-bete-giyorgis.jpg',
+      imageUrl: 'https://media.istockphoto.com/id/1305435687/photo/lalibela-ethiopia-famous-rock-hewn-church-of-saint-george-bete-giyorgis.jpg?b=1&s=612x612&w=0&k=20&c=odHB_4VkRDb7-pOHrRLTDQ9X6b6UiE8e19W9xaHk_Rc=',
       date: '12th Century',
       location: 'Lalibela'
     },
