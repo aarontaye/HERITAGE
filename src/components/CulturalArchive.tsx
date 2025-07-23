@@ -82,7 +82,7 @@ const CulturalArchive: React.FC<CulturalArchiveProps> = ({ onBack }) => {
       title: 'Kebra Nagast',
       description: 'The Glory of the Kings - Ethiopian national epic',
       category: 'manuscripts',
-      imageUrl: 'https://imgv2-1-f.scribdassets.com/img/word_document/859219487/original/216x287/f926990f2c/1746768006?v=1',
+      imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJXckbIOGmNCSLNLd972hXNEaT3iun_DgxFQ&s',
       date: '14th Century',
       location: 'Various monasteries'
     },
