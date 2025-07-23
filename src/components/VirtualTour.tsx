@@ -67,9 +67,9 @@ const VirtualTour: React.FC<VirtualTourProps> = ({ onBack }) => {
       significance: 'Birthplace of Ethiopian civilization and Christianity',
       imageUrl: 'https://media.istockphoto.com/id/1173442743/photo/the-northern-stelae-park-of-aksum-famous-obelisks-in-axum-ethiopia.jpg?b=1&s=612x612&w=0&k=20&c=GuFUL8PmrlQdf_oGvc3nFU-AnDeGrmWjTanf2PPlJ_c=',
       galleryImages: [
-        'https://media.istockphoto.com/id/1173442743/photo/the-northern-stelae-park-of-aksum-famous-obelisks-in-axum-ethiopia.jpg',
-        'https://media.istockphoto.com/id/186914973/photo/obelisk-in-the-aksum-kingdom-ethiopia.jpg',
-        'https://images.pexels.com/photos/30327295/pexels-photo-30327295.jpeg'
+        'https://media.istockphoto.com/id/1173442743/photo/the-northern-stelae-park-of-aksum-famous-obelisks-in-axum-ethiopia.jpg?b=1&s=612x612&w=0&k=20&c=GuFUL8PmrlQdf_oGvc3nFU-AnDeGrmWjTanf2PPlJ_c=',
+        'https://media.istockphoto.com/id/1173442743/photo/the-northern-stelae-park-of-aksum-famous-obelisks-in-axum-ethiopia.jpg?b=1&s=612x612&w=0&k=20&c=GuFUL8PmrlQdf_oGvc3nFU-AnDeGrmWjTanf2PPlJ_c=',
+        'https://media.istockphoto.com/id/1173442743/photo/the-northern-stelae-park-of-aksum-famous-obelisks-in-axum-ethiopia.jpg?b=1&s=612x612&w=0&k=20&c=GuFUL8PmrlQdf_oGvc3nFU-AnDeGrmWjTanf2PPlJ_c='
       ],
       facts: [
         'Home to the largest ancient obelisk in the world',
