@@ -43,7 +43,7 @@ const VirtualTour: React.FC<VirtualTourProps> = ({ onBack }) => {
       description: 'Eleven medieval monolithic churches carved directly into the volcanic rock, representing a New Jerusalem.',
       historicalPeriod: '12th-13th Century',
       significance: 'UNESCO World Heritage Site and active pilgrimage destination',
-      imageUrl: 'https://media.istockphoto.com/id/530628231/photo/church-of-st-george-unesco-world-heritage-lalibela-ethiopia.jpg',
+      imageUrl: 'https://media.istockphoto.com/id/530628231/photo/church-of-st-george-unesco-world-heritage-lalibela-ethiopia.jpg?b=1&s=612x612&w=0&k=20&c=87hIk5lWuUVQudD8ZU75MjQKz3d3tHWmkTSGSnW3N84=',
       galleryImages: [
         'https://media.istockphoto.com/id/530628231/photo/church-of-st-george-unesco-world-heritage-lalibela-ethiopia.jpg',
         'https://media.istockphoto.com/id/618056636/photo/bete-abba-libanos-rock-hewn-church-lalibela-ethiopia.jpg',
