@@ -150,7 +150,7 @@ const Marketplace: React.FC<MarketplaceProps> = ({ onBack }) => {
       artisanId: '3',
       artisanName: 'Hanan Mohammed',
       price: '$95 - $150',
-      imageUrl: 'https://media.istockphoto.com/id/885749794/photo/ethiopian-cross-necklace-with-old-handmade-glass-beads.jpg',
+      imageUrl: 'https://media.istockphoto.com/id/885749794/photo/ethiopian-cross-necklace-with-old-handmade-glass-beads.jpg?b=1&s=612x612&w=0&k=20&c=81W-iwazYa6jWt3MZ00tIxfC9x35P5EfTHmEQEfuiX8=',
       category: 'jewelry',
       materials: ['Sterling Silver', 'Traditional Techniques'],
       craftTime: '2 weeks'
@@ -162,7 +162,7 @@ const Marketplace: React.FC<MarketplaceProps> = ({ onBack }) => {
       artisanId: '4',
       artisanName: 'Desta Abebe',
       price: '$65 - $95',
-      imageUrl: 'https://media.istockphoto.com/id/629802306/photo/young-african-girl-preparing-coffee-ethiopia-east-africa.jpg',
+      imageUrl: 'https://media.istockphoto.com/id/629802306/photo/young-african-girl-preparing-coffee-ethiopia-east-africa.jpg?b=1&s=612x612&w=0&k=20&c=-EZoO0p3l9Km49oUt0D_q_Dg-LYm4q_mMmj1dQs8SMM=',
       category: 'pottery',
       materials: ['Local Clay', 'Natural Glazes'],
       craftTime: '10 days'
