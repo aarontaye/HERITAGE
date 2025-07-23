@@ -126,7 +126,7 @@ const Marketplace: React.FC<MarketplaceProps> = ({ onBack }) => {
       artisanId: '1',
       artisanName: 'Almaz Tadesse',
       price: '$120 - $180',
-      imageUrl: 'https://media.istockphoto.com/id/2195463329/photo/traditional-ethiopian-kemis-a-white-dress-with-colorful-embroidery-worn-by-women-during-the.jpg',
+      imageUrl: 'https://media.istockphoto.com/id/2195463329/photo/traditional-ethiopian-kemis-a-white-dress-with-colorful-embroidery-worn-by-women-during-the.jpg?b=1&s=612x612&w=0&k=20&c=yjJxJyZubvwdDc0oMLOZ_K7XfBj0UliP9Ag6c6x0uWk=',
       category: 'textiles',
       materials: ['100% Cotton', 'Natural Dyes'],
       craftTime: '2-3 weeks'
