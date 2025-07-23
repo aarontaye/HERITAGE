@@ -73,7 +73,7 @@ const CulturalArchive: React.FC<CulturalArchiveProps> = ({ onBack }) => {
       title: 'Rock Churches of Lalibela',
       description: 'Monolithic churches carved from solid rock',
       category: 'places',
-      imageUrl: 'https://media.istockphoto.com/id/618056636/photo/bete-abba-libanos-rock-hewn-church-lalibela-ethiopia.jpg',
+      imageUrl: 'https://media.istockphoto.com/id/1305435687/photo/lalibela-ethiopia-famous-rock-hewn-church-of-saint-george-bete-giyorgis.jpg?b=1&s=612x612&w=0&k=20&c=odHB_4VkRDb7-pOHrRLTDQ9X6b6UiE8e19W9xaHk_Rc=',
       date: '12th Century',
       location: 'Lalibela'
     },
