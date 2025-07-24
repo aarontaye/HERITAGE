@@ -89,7 +89,7 @@ const LearningPortal: React.FC<LearningPortalProps> = ({ onBack }) => {
       lessons: 12,
       students: 2156,
       rating: 4.7,
-      imageUrl: 'https://media.istockphoto.com/id/601363406/photo/african-woman-holding-basket-full-of-coffee-cherries-east-africa.jpg'
+      imageUrl: 'https://media.istockphoto.com/id/601363406/photo/african-woman-holding-basket-full-of-coffee-cherries-east-africa.jpg?b=1&s=612x612&w=0&k=20&c=Z8_CdiWLfdqgEa8ooT7wDZJC30QTeS1rh77Fs31EaIY='
     },
     {
       id: '4',
@@ -101,7 +101,7 @@ const LearningPortal: React.FC<LearningPortalProps> = ({ onBack }) => {
       lessons: 15,
       students: 743,
       rating: 4.6,
-      imageUrl: 'https://media.istockphoto.com/id/1045923086/photo/feet-of-hamer-ladies-dancing-omo-valley-in-ethiopia.jpg'
+      imageUrl: 'https://media.istockphoto.com/id/1045923086/photo/feet-of-hamer-ladies-dancing-omo-valley-in-ethiopia.jpg?b=1&s=612x612&w=0&k=20&c=0yg1cm_7oWD_MMuZO43vmTsO88Wz4h-5T2YLlrmI7js='
     },
     {
       id: '5',
@@ -125,7 +125,7 @@ const LearningPortal: React.FC<LearningPortalProps> = ({ onBack }) => {
       lessons: 40,
       students: 234,
       rating: 4.9,
-      imageUrl: 'https://media.istockphoto.com/id/591847376/photo/geez-script.jpg'
+      imageUrl: 'https://media.istockphoto.com/id/591847376/photo/geez-script.jpg?b=1&s=612x612&w=0&k=20&c=-2sP1tJ14motWa-rg8FcqSZNX5GYkmDcR3oHVEQND0U='
     }
   ];
 
