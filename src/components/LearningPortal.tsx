@@ -64,7 +64,7 @@ const LearningPortal: React.FC<LearningPortalProps> = ({ onBack }) => {
       lessons: 20,
       students: 1247,
       rating: 4.8,
-      imageUrl: 'https://m.media-amazon.com/images/I/51F0igx13FL._SL10_UR1600,800_CR200,50,1200,630_CLa%7C1200,630%7C51F0igx13FL.jpg',
+      imageUrl: 'https://m.media-amazon.com/images/I/51F0igx13FL._SL10_UR1600,800_CR200,50,1200,630_CLa%7C1200,630%7C51F0igx13FL.jpg%7C0,0,1200,630+82,82,465,465_PJAdblSocialShare-Gradientoverlay-largeasin-0to70,TopLeft,0,0_PJAdblSocialShare-AudibleLogo-Large,TopLeft,600,270_OU01_ZBLISTENING%20ON,617,216,52,500,AudibleSansMd,30,255,255,255.jpg',
       progress: 35
     },
     {
