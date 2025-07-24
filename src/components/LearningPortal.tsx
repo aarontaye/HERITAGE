@@ -13,7 +13,10 @@ import {
   Star,
   Languages,
   Globe,
-  Brain
+  Brain,
+  Lock,
+  Check,
+  ChevronRight
 } from 'lucide-react';
 
 interface Course {
@@ -28,6 +31,15 @@ interface Course {
   rating: number;
   imageUrl: string;
   progress?: number;
+}
+
+interface CourseLevel {
+  id: number;
+  title: string;
+  description: string;
+  content: string;
+  duration: string;
+  completed: boolean;
 }
 
 interface Quiz {
@@ -52,6 +64,9 @@ const LearningPortal: React.FC<LearningPortalProps> = ({ onBack }) => {
   const [showResult, setShowResult] = useState(false);
   const [score, setScore] = useState(0);
   const [quizCompleted, setQuizCompleted] = useState(false);
+  const [courseLevels, setCourseLevels] = useState<CourseLevel[]>([]);
+  const [selectedLevel, setSelectedLevel] = useState<CourseLevel | null>(null);
+  const [courseCompleted, setCourseCompleted] = useState(false);
 
   const courses: Course[] = [
     {
@@ -174,6 +189,51 @@ const LearningPortal: React.FC<LearningPortalProps> = ({ onBack }) => {
     return () => clearTimeout(timer);
   }, []);
 
+  const generateCourseLevels = (courseId: string): CourseLevel[] => {
+    const levelTemplates = {
+      '1': [ // Amharic for Beginners
+        { title: 'Introduction to Amharic', description: 'Learn the basics of Ethiopian language', content: 'Welcome to Amharic! Amharic is the official language of Ethiopia, spoken by over 25 million people. In this level, you\'ll learn about the history of the language, its importance in Ethiopian culture, and basic pronunciation rules.' },
+        { title: 'Ge\'ez Script Basics', description: 'Understanding the writing system', content: 'The Amharic language uses the Ge\'ez script, also known as Fidel. This ancient writing system has over 200 characters. We\'ll start with the basic consonants and vowel modifications.' },
+        { title: 'Common Greetings', description: 'Essential phrases for daily interaction', content: 'Learn essential greetings: Selam (Hello), Dehna neh? (How are you?), Ameseginalehu (Thank you), and other common phrases used in daily Ethiopian conversations.' },
+        { title: 'Numbers and Time', description: 'Counting and telling time in Amharic', content: 'Master numbers 1-100 in Amharic and learn how to tell time. Understanding the Ethiopian calendar system and time expressions will help you navigate daily conversations.' },
+        { title: 'Family and Relationships', description: 'Vocabulary for family members and social connections', content: 'Learn words for family members, relationships, and social connections. This vocabulary is essential for describing your family and understanding Ethiopian social structures.' }
+      ],
+      '2': [ // Ancient Ethiopian History
+        { title: 'Origins of Ethiopian Civilization', description: 'The dawn of human civilization in Ethiopia', content: 'Ethiopia is often called the cradle of humanity. Archaeological evidence shows that early humans lived in Ethiopia over 3 million years ago. Learn about Lucy (Dinkinesh) and other important archaeological discoveries.' },
+        { title: 'The Kingdom of Axum', description: 'Ethiopia\'s first great empire', content: 'The Axumite Kingdom (1st-8th century AD) was one of the great civilizations of the ancient world. It controlled important trade routes and was among the first nations to adopt Christianity.' },
+        { title: 'Medieval Period and Zagwe Dynasty', description: 'The builders of Lalibela', content: 'The Zagwe Dynasty (12th-13th centuries) created the magnificent rock-hewn churches of Lalibela. Learn about King Lalibela and the religious significance of these architectural marvels.' },
+        { title: 'The Solomonic Dynasty', description: 'Claiming descent from King Solomon', content: 'The Solomonic Dynasty claimed descent from King Solomon and the Queen of Sheba. This period saw the expansion of Ethiopian territory and the development of unique cultural traditions.' },
+        { title: 'Modern Ethiopia', description: 'From empire to modern nation', content: 'Learn about Ethiopia\'s resistance to colonialism, the reign of Emperor Haile Selassie, the Derg period, and the formation of modern Ethiopia as a federal democratic republic.' }
+      ],
+      '3': [ // Ethiopian Coffee Culture
+        { title: 'The Legend of Coffee Discovery', description: 'How coffee was discovered in Ethiopia', content: 'According to legend, a goat herder named Kaldi discovered coffee when he noticed his goats becoming energetic after eating certain berries. Ethiopia is considered the birthplace of coffee.' },
+        { title: 'Coffee Growing Regions', description: 'Ethiopia\'s diverse coffee landscapes', content: 'Ethiopia has several distinct coffee-growing regions: Sidamo, Yirgacheffe, Harrar, and others. Each region produces coffee with unique flavor profiles influenced by altitude, climate, and soil.' },
+        { title: 'The Coffee Ceremony', description: 'Sacred ritual of coffee preparation', content: 'The Ethiopian coffee ceremony is a social and spiritual ritual. It involves roasting green coffee beans, grinding them by hand, and brewing in a clay pot called a jebena. The ceremony can take hours and brings communities together.' },
+        { title: 'Coffee in Ethiopian Society', description: 'Cultural significance and daily life', content: 'Coffee plays a central role in Ethiopian social life. It\'s served at important occasions, used in conflict resolution, and is an integral part of hospitality. Learn about coffee\'s role in Ethiopian culture.' },
+        { title: 'From Bean to Cup', description: 'Traditional processing methods', content: 'Learn about traditional Ethiopian coffee processing methods, from harvesting the cherries to the final cup. Understand the difference between washed and natural processing and how it affects flavor.' }
+      ]
+    };
+
+    const defaultLevels = [
+      { title: 'Introduction', description: 'Getting started with the basics', content: 'Welcome to this comprehensive course! In this introductory level, we\'ll cover the fundamental concepts and provide you with a solid foundation for your learning journey.' },
+      { title: 'Core Concepts', description: 'Understanding the main principles', content: 'Now that you have the basics, let\'s dive deeper into the core concepts. This level will build upon your foundation and introduce more complex ideas and principles.' },
+      { title: 'Practical Applications', description: 'Applying what you\'ve learned', content: 'It\'s time to put theory into practice! This level focuses on real-world applications and hands-on exercises to reinforce your understanding.' },
+      { title: 'Advanced Topics', description: 'Exploring deeper knowledge', content: 'Ready for more advanced material? This level covers sophisticated topics and prepares you for expert-level understanding of the subject matter.' },
+      { title: 'Mastery', description: 'Achieving expertise', content: 'Congratulations on reaching the final level! Here we\'ll consolidate everything you\'ve learned and explore the most advanced aspects of the topic.' }
+    ];
+
+    const levels = levelTemplates[courseId as keyof typeof levelTemplates] || defaultLevels;
+    
+    return levels.map((level, index) => ({
+      id: index + 1,
+      title: level.title,
+      description: level.description,
+      content: level.content,
+      duration: '15-20 min',
+      completed: false
+    }));
+  };
+
   const categories = [
     { id: 'all', label: 'All Courses', icon: BookOpen, color: 'bg-gray-500' },
     { id: 'language', label: 'Language', icon: Languages, color: 'bg-blue-500' },
@@ -205,7 +265,7 @@ const LearningPortal: React.FC<LearningPortalProps> = ({ onBack }) => {
       // Add quiz result to user history
       const quizResult = {
         id: Date.now().toString(),
-        quizName: 'Ethiopian Culture Quiz',
+        quizName: `${selectedCourse?.title} Quiz`,
         score,
         totalQuestions: quizzes.length,
         completedAt: new Date().toISOString(),
@@ -213,6 +273,7 @@ const LearningPortal: React.FC<LearningPortalProps> = ({ onBack }) => {
       };
       addQuizResult(quizResult);
       setQuizCompleted(true);
+      setCourseCompleted(true);
     }
   };
 
@@ -223,6 +284,25 @@ const LearningPortal: React.FC<LearningPortalProps> = ({ onBack }) => {
     setScore(0);
     setQuizCompleted(false);
   };
+
+  const startCourse = (course: Course) => {
+    setSelectedCourse(course);
+    const levels = generateCourseLevels(course.id);
+    setCourseLevels(levels);
+    setCourseCompleted(false);
+  };
+
+  const completeLevel = (levelId: number) => {
+    setCourseLevels(prev => 
+      prev.map(level => 
+        level.id === levelId ? { ...level, completed: true } : level
+      )
+    );
+    setSelectedLevel(null);
+  };
+
+  const allLevelsCompleted = courseLevels.every(level => level.completed);
+  const canTakeQuiz = allLevelsCompleted && !quizCompleted;
 
   const SkeletonCard = () => (
     <div className="bg-white rounded-2xl overflow-hidden shadow-sm animate-pulse">
@@ -293,87 +373,242 @@ const LearningPortal: React.FC<LearningPortalProps> = ({ onBack }) => {
     </div>
   );
 
-  const CourseDetail = ({ course }: { course: Course }) => (
+  const LevelDetail = ({ level }: { level: CourseLevel }) => (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-amber-50 to-rose-50">
       <header className="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
         <div className="px-6 py-4">
           <div className="flex items-center space-x-4">
             <button 
-              onClick={() => setSelectedCourse(null)}
+              onClick={() => setSelectedLevel(null)}
               className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition-colors"
             >
               <ArrowLeft size={20} className="text-gray-600" />
             </button>
             <div>
-              <h1 className="text-lg font-bold text-gray-800">{course.title}</h1>
-              <p className="text-sm text-gray-600">{course.category} • {course.level}</p>
+              <h1 className="text-lg font-bold text-gray-800">Level {level.id}: {level.title}</h1>
+              <p className="text-sm text-gray-600">{selectedCourse?.title}</p>
             </div>
           </div>
         </div>
       </header>
 
       <div className="px-6 py-4">
-        <div className="h-48 rounded-2xl overflow-hidden mb-6">
-          <img 
-            src={course.imageUrl} 
-            alt={course.title}
-            className="w-full h-full object-cover"
-          />
-        </div>
-
         <div className="bg-white rounded-2xl p-6 mb-6">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-xl font-bold text-gray-800">Course Overview</h2>
-            <div className="flex items-center space-x-1 text-amber-500">
-              <Star size={16} fill="currentColor" />
-              <span className="font-medium">{course.rating}</span>
+          <div className="mb-4">
+            <div className="flex items-center justify-between mb-2">
+              <h2 className="text-xl font-bold text-gray-800">{level.title}</h2>
+              <span className="text-sm text-gray-500">{level.duration}</span>
+            </div>
+            <p className="text-gray-600 mb-4">{level.description}</p>
+          </div>
+          
+          <div className="prose prose-gray max-w-none mb-6">
+            <div className="bg-gray-50 rounded-xl p-4">
+              <p className="text-gray-700 leading-relaxed">{level.content}</p>
             </div>
           </div>
-          <p className="text-gray-700 mb-4">{course.description}</p>
-          <div className="grid grid-cols-2 gap-4 mb-4">
-            <div>
-              <h4 className="font-semibold text-gray-800 mb-1">Duration</h4>
-              <p className="text-gray-600 text-sm">{course.duration}</p>
-            </div>
-            <div>
-              <h4 className="font-semibold text-gray-800 mb-1">Students</h4>
-              <p className="text-gray-600 text-sm">{course.students.toLocaleString()}</p>
-            </div>
-          </div>
-          {course.progress && (
-            <div className="mb-4">
-              <div className="flex justify-between items-center mb-2">
-                <h4 className="font-semibold text-gray-800">Progress</h4>
-                <span className="text-sm text-gray-600">{course.progress}%</span>
-              </div>
-              <div className="bg-gray-200 rounded-full h-2">
-                <div 
-                  className="bg-emerald-500 h-2 rounded-full transition-all duration-300"
-                  style={{ width: `${course.progress}%` }}
-                ></div>
-              </div>
-            </div>
-          )}
-          <button className="w-full bg-emerald-500 text-white py-3 rounded-xl font-medium hover:bg-emerald-600 transition-colors flex items-center justify-center space-x-2">
-            <Play size={16} />
-            <span>{course.progress ? 'Continue Learning' : 'Start Course'}</span>
-          </button>
-        </div>
 
-        <div className="bg-white rounded-2xl p-6">
-          <h3 className="text-lg font-semibold text-gray-800 mb-4">Test Your Knowledge</h3>
-          <p className="text-gray-600 mb-4">Take a quick quiz to test what you know about Ethiopian culture and history.</p>
           <button 
-            onClick={() => setShowQuiz(true)}
-            className="w-full bg-amber-500 text-white py-3 rounded-xl font-medium hover:bg-amber-600 transition-colors flex items-center justify-center space-x-2"
+            onClick={() => completeLevel(level.id)}
+            className="w-full bg-emerald-500 text-white py-3 rounded-xl font-medium hover:bg-emerald-600 transition-colors flex items-center justify-center space-x-2"
           >
-            <Brain size={16} />
-            <span>Start Quiz</span>
+            <Check size={16} />
+            <span>Mark as Complete</span>
           </button>
         </div>
       </div>
     </div>
   );
+
+  const CourseDetail = ({ course }: { course: Course }) => {
+    if (courseCompleted) {
+      return (
+        <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-amber-50 to-rose-50 flex items-center justify-center p-6">
+          <div className="bg-white rounded-2xl p-8 max-w-md w-full text-center">
+            <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Award size={32} className="text-emerald-600" />
+            </div>
+            <h2 className="text-2xl font-bold text-gray-800 mb-2">Course Completed!</h2>
+            <p className="text-gray-600 mb-4">
+              Congratulations! You have successfully completed "{course.title}".
+            </p>
+            <div className="mb-6">
+              <div className="text-3xl font-bold text-emerald-600 mb-1">
+                🎉
+              </div>
+              <p className="text-gray-500 text-sm">
+                You've mastered all 5 levels and passed the final quiz!
+              </p>
+            </div>
+            <div className="space-y-3">
+              <button 
+                onClick={() => {
+                  setSelectedCourse(null);
+                  setCourseLevels([]);
+                  setCourseCompleted(false);
+                  setQuizCompleted(false);
+                  setScore(0);
+                }}
+                className="w-full bg-emerald-500 text-white py-3 rounded-xl font-medium hover:bg-emerald-600 transition-colors"
+              >
+                Back to Courses
+              </button>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-amber-50 to-rose-50">
+        <header className="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+          <div className="px-6 py-4">
+            <div className="flex items-center space-x-4">
+              <button 
+                onClick={() => {
+                  setSelectedCourse(null);
+                  setCourseLevels([]);
+                  setCourseCompleted(false);
+                  setQuizCompleted(false);
+                  setScore(0);
+                }}
+                className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition-colors"
+              >
+                <ArrowLeft size={20} className="text-gray-600" />
+              </button>
+              <div>
+                <h1 className="text-lg font-bold text-gray-800">{course.title}</h1>
+                <p className="text-sm text-gray-600">{course.category} • {course.level}</p>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <div className="px-6 py-4">
+          <div className="h-48 rounded-2xl overflow-hidden mb-6">
+            <img 
+              src={course.imageUrl} 
+              alt={course.title}
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          <div className="bg-white rounded-2xl p-6 mb-6">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-xl font-bold text-gray-800">Course Progress</h2>
+              <div className="flex items-center space-x-1 text-amber-500">
+                <Star size={16} fill="currentColor" />
+                <span className="font-medium">{course.rating}</span>
+              </div>
+            </div>
+            <p className="text-gray-700 mb-4">{course.description}</p>
+            
+            {courseLevels.length > 0 && (
+              <div className="mb-4">
+                <div className="flex justify-between items-center mb-2">
+                  <h4 className="font-semibold text-gray-800">Learning Progress</h4>
+                  <span className="text-sm text-gray-600">
+                    {courseLevels.filter(l => l.completed).length} / {courseLevels.length} levels
+                  </span>
+                </div>
+                <div className="bg-gray-200 rounded-full h-2">
+                  <div 
+                    className="bg-emerald-500 h-2 rounded-full transition-all duration-300"
+                    style={{ width: `${(courseLevels.filter(l => l.completed).length / courseLevels.length) * 100}%` }}
+                  ></div>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {courseLevels.length === 0 ? (
+            <div className="bg-white rounded-2xl p-6 mb-6">
+              <button 
+                onClick={() => startCourse(course)}
+                className="w-full bg-emerald-500 text-white py-3 rounded-xl font-medium hover:bg-emerald-600 transition-colors flex items-center justify-center space-x-2"
+              >
+                <Play size={16} />
+                <span>Start Course</span>
+              </button>
+            </div>
+          ) : (
+            <>
+              <div className="bg-white rounded-2xl p-6 mb-6">
+                <h3 className="text-lg font-semibold text-gray-800 mb-4">Course Levels</h3>
+                <div className="space-y-3">
+                  {courseLevels.map((level, index) => (
+                    <div 
+                      key={level.id}
+                      className={`flex items-center justify-between p-4 rounded-xl border-2 transition-all ${
+                        level.completed 
+                          ? 'border-emerald-200 bg-emerald-50' 
+                          : index === 0 || courseLevels[index - 1]?.completed
+                          ? 'border-gray-200 bg-white hover:border-emerald-300 cursor-pointer'
+                          : 'border-gray-100 bg-gray-50'
+                      }`}
+                      onClick={() => {
+                        if (level.completed || index === 0 || courseLevels[index - 1]?.completed) {
+                          setSelectedLevel(level);
+                        }
+                      }}
+                    >
+                      <div className="flex items-center space-x-3">
+                        <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
+                          level.completed 
+                            ? 'bg-emerald-500 text-white' 
+                            : index === 0 || courseLevels[index - 1]?.completed
+                            ? 'bg-gray-200 text-gray-600'
+                            : 'bg-gray-100 text-gray-400'
+                        }`}>
+                          {level.completed ? (
+                            <CheckCircle size={16} />
+                          ) : index === 0 || courseLevels[index - 1]?.completed ? (
+                            <span className="text-sm font-medium">{level.id}</span>
+                          ) : (
+                            <Lock size={16} />
+                          )}
+                        </div>
+                        <div>
+                          <h4 className={`font-medium ${
+                            level.completed ? 'text-emerald-700' : 'text-gray-800'
+                          }`}>
+                            Level {level.id}: {level.title}
+                          </h4>
+                          <p className="text-gray-600 text-sm">{level.description}</p>
+                        </div>
+                      </div>
+                      {(index === 0 || courseLevels[index - 1]?.completed) && (
+                        <ChevronRight size={20} className="text-gray-400" />
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="bg-white rounded-2xl p-6">
+                <h3 className="text-lg font-semibold text-gray-800 mb-4">Final Quiz</h3>
+                <p className="text-gray-600 mb-4">
+                  Complete all levels to unlock the final quiz and earn your course completion certificate.
+                </p>
+                <button 
+                  onClick={() => setShowQuiz(true)}
+                  disabled={!canTakeQuiz}
+                  className={`w-full py-3 rounded-xl font-medium transition-colors flex items-center justify-center space-x-2 ${
+                    canTakeQuiz
+                      ? 'bg-amber-500 text-white hover:bg-amber-600'
+                      : 'bg-gray-100 text-gray-400 cursor-not-allowed'
+                  }`}
+                >
+                  {canTakeQuiz ? <Brain size={16} /> : <Lock size={16} />}
+                  <span>{canTakeQuiz ? 'Take Final Quiz' : 'Complete All Levels First'}</span>
+                </button>
+              </div>
+            </>
+          )}
+        </div>
+      </div>
+    );
+  };
 
   const QuizComponent = () => {
     if (quizCompleted) {
@@ -397,17 +632,20 @@ const LearningPortal: React.FC<LearningPortalProps> = ({ onBack }) => {
             </div>
             <div className="space-y-3">
               <button 
-                onClick={resetQuiz}
-                className="w-full bg-emerald-500 text-white py-3 rounded-xl font-medium hover:bg-emerald-600 transition-colors flex items-center justify-center space-x-2"
+                onClick={() => {
+                  setShowQuiz(false);
+                  // Course will be marked as completed in the parent component
+                }}
+                className="w-full bg-emerald-500 text-white py-3 rounded-xl font-medium hover:bg-emerald-600 transition-colors"
               >
-                <RotateCcw size={16} />
-                <span>Try Again</span>
+                Continue
               </button>
               <button 
-                onClick={() => setShowQuiz(false)}
-                className="w-full border border-gray-200 text-gray-700 py-3 rounded-xl font-medium hover:bg-gray-50 transition-colors"
+                onClick={resetQuiz}
+                className="w-full border border-gray-200 text-gray-700 py-3 rounded-xl font-medium hover:bg-gray-50 transition-colors flex items-center justify-center space-x-2"
               >
-                Back to Course
+                <RotateCcw size={16} />
+                <span>Retake Quiz</span>
               </button>
             </div>
           </div>
@@ -430,7 +668,7 @@ const LearningPortal: React.FC<LearningPortalProps> = ({ onBack }) => {
                   <ArrowLeft size={20} className="text-gray-600" />
                 </button>
                 <div>
-                  <h1 className="text-lg font-bold text-gray-800">Cultural Quiz</h1>
+                  <h1 className="text-lg font-bold text-gray-800">Final Quiz</h1>
                   <p className="text-sm text-gray-600">Question {currentQuizIndex + 1} of {quizzes.length}</p>
                 </div>
               </div>
@@ -521,6 +759,10 @@ const LearningPortal: React.FC<LearningPortalProps> = ({ onBack }) => {
       </div>
     );
   };
+
+  if (selectedLevel) {
+    return <LevelDetail level={selectedLevel} />;
+  }
 
   if (showQuiz) {
     return <QuizComponent />;
