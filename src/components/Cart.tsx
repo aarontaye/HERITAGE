@@ -248,8 +248,10 @@ const Cart: React.FC<CartProps> = ({ onBack }) => {
                 <p className="text-sm text-gray-600">{totalItems} items</p>
               </div>
             </div>
-            <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center">
-              <ShoppingCart size={20} className="text-emerald-600" />
+            <div className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center">
+                <ShoppingCart size={20} className="text-emerald-600" />
+              </div>
             </div>
           </div>
         </div>

@@ -65,6 +65,8 @@ function App() {
       setCurrentPage('marketplace');
     } else if (tabId === 'learn') {
       setCurrentPage('learn');
+    } else if (tabId === 'cart') {
+      setCurrentPage('cart');
     } else {
       setCurrentPage('home');
     }
@@ -106,7 +108,8 @@ function App() {
     { id: 'archive', label: 'Archive', icon: Archive },
     { id: 'tour', label: 'Tour', icon: MapPin },
     { id: 'marketplace', label: 'Marketplace', icon: ShoppingBag },
-    { id: 'learn', label: 'Learn', icon: BookOpen }
+    { id: 'learn', label: 'Learn', icon: BookOpen },
+    { id: 'cart', label: 'Cart', icon: ShoppingCart }
   ];
 
   const ShimmerCard = () => (
@@ -173,7 +176,7 @@ function App() {
           <div className="flex items-center justify-between">
             <div>
               <h1 className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>ቅርስ Heritage</h1>
-              <p className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>Shopping Cart</p>
+              <p className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>Discover Ethiopian Heritage</p>
             </div>
             <div className="flex items-center space-x-3">
               <ThemeToggle isDark={isDarkMode} onToggle={() => setIsDarkMode(!isDarkMode)} />
@@ -265,7 +268,7 @@ function App() {
 
       {/* Bottom Navigation */}
       <nav className={`fixed bottom-0 left-0 right-0 ${isDarkMode ? 'bg-gray-900 border-gray-700' : 'bg-white border-gray-100'} border-t px-6 py-3`}>
-        <div className="flex items-center justify-between overflow-x-auto">
+        <div className="flex items-center justify-around overflow-x-auto">
           {navigationItems.map((item) => (
             <button
               key={item.id}
@@ -275,7 +278,7 @@ function App() {
                   ? 'text-emerald-600 bg-emerald-50' 
                   : isDarkMode 
                   ? 'text-gray-400 hover:text-gray-200'
-                  : 'text-gray-500 hover:text-gray-700'
+              onClick={() => setCurrentPage('cart')}
               }`}
             >
               <item.icon size={20} />
