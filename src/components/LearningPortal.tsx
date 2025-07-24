@@ -77,7 +77,7 @@ const LearningPortal: React.FC<LearningPortalProps> = ({ onBack }) => {
       lessons: 30,
       students: 892,
       rating: 4.9,
-      imageUrl: 'https://media.istockphoto.com/id/1128000925/photo/azwa-mariam-monastery.jpg'
+      imageUrl: 'https://media.istockphoto.com/id/1128000925/photo/azwa-mariam-monastery.jpg?b=1&s=612x612&w=0&k=20&c=VG4Z1SXUfRx93FrU_iAtPNs1QUeH28w68MxTs2Hg5HU='
     },
     {
       id: '3',
