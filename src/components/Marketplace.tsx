@@ -31,6 +31,8 @@ interface Artisan {
   crafts: string[];
   experience: string;
   verified: boolean;
+  phone: string;
+  email: string;
 }
 
 interface Product {
@@ -83,7 +85,9 @@ const Marketplace: React.FC<MarketplaceProps> = ({ onBack }) => {
       imageUrl: 'https://images.pexels.com/photos/30327295/pexels-photo-30327295.jpeg',
       crafts: ['Habesha Kemis', 'Netela', 'Traditional Scarves'],
       experience: '25+ years',
-      verified: true
+      verified: true,
+      phone: '0995055673',
+      email: 'bettyaaron6090@gmail.com'
     },
     {
       id: '2',
@@ -96,7 +100,9 @@ const Marketplace: React.FC<MarketplaceProps> = ({ onBack }) => {
       imageUrl: 'https://images.pexels.com/photos/30327295/pexels-photo-30327295.jpeg',
       crafts: ['Religious Crosses', 'Decorative Panels', 'Traditional Furniture'],
       experience: '20+ years',
-      verified: true
+      verified: true,
+      phone: '0995055673',
+      email: 'bettyaaron6090@gmail.com'
     },
     {
       id: '3',
@@ -109,7 +115,9 @@ const Marketplace: React.FC<MarketplaceProps> = ({ onBack }) => {
       imageUrl: 'https://images.pexels.com/photos/30327295/pexels-photo-30327295.jpeg',
       crafts: ['Traditional Necklaces', 'Earrings', 'Bracelets'],
       experience: '15+ years',
-      verified: true
+      verified: true,
+      phone: '0995055673',
+      email: 'bettyaaron6090@gmail.com'
     },
     {
       id: '4',
@@ -122,7 +130,9 @@ const Marketplace: React.FC<MarketplaceProps> = ({ onBack }) => {
       imageUrl: 'https://images.pexels.com/photos/30327295/pexels-photo-30327295.jpeg',
       crafts: ['Coffee Ceremony Sets', 'Decorative Vases', 'Traditional Bowls'],
       experience: '18+ years',
-      verified: false
+      verified: false,
+      phone: '0995055673',
+      email: 'bettyaaron6090@gmail.com'
     }
   ];
 
@@ -427,12 +437,18 @@ const Marketplace: React.FC<MarketplaceProps> = ({ onBack }) => {
               <MessageCircle size={16} />
               <span>Contact Artisan</span>
             </button>
-            <button className="px-6 py-3 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors flex items-center space-x-2">
+            <a 
+              href={`tel:${artisan.phone}`}
+              className="px-6 py-3 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors flex items-center space-x-2"
+            >
               <Phone size={16} className="text-gray-600" />
-            </button>
-            <button className="px-6 py-3 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors flex items-center space-x-2">
+            </a>
+            <a 
+              href={`mailto:${artisan.email}`}
+              className="px-6 py-3 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors flex items-center space-x-2"
+            >
               <Mail size={16} className="text-gray-600" />
-            </button>
+            </a>
           </div>
         </div>
 
