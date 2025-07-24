@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { User, QuizResult, FavoriteItem } from '../types/user';
+import { User, QuizResult, FavoriteItem, CartItem } from '../types/user';
 
 interface UserContextType {
   user: User | null;
@@ -8,7 +8,12 @@ interface UserContextType {
   removeFromFavorites: (itemId: string, type: 'archive' | 'tour' | 'product') => void;
   isFavorite: (itemId: string, type: 'archive' | 'tour' | 'product') => boolean;
   addQuizResult: (result: QuizResult) => void;
-  getCartItems: () => FavoriteItem[];
+  getCartItems: () => CartItem[];
+  addToCart: (item: CartItem) => void;
+  removeFromCart: (itemId: string, type: 'archive' | 'tour' | 'product') => void;
+  updateCartQuantity: (itemId: string, type: 'archive' | 'tour' | 'product', quantity: number) => void;
+  clearCart: () => void;
+  getCartTotal: () => number;
 }
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
@@ -50,7 +55,8 @@ const defaultUser: User = {
     archiveItems: ['1', '3'],
     tourSites: ['lalibela'],
     products: ['1', '2']
-  }
+  },
+  cart: []
 };
 
 // Mock favorite items data
@@ -97,9 +103,36 @@ const mockFavoriteItems: FavoriteItem[] = [
   }
 ];
 
+// Mock cart items data
+const mockCartItems: CartItem[] = [
+  {
+    id: '1',
+    type: 'product',
+    title: 'Handwoven Habesha Kemis',
+    description: 'Traditional Ethiopian dress with intricate border patterns',
+    imageUrl: 'https://media.istockphoto.com/id/2195463329/photo/traditional-ethiopian-kemis-a-white-dress-with-colorful-embroidery-worn-by-women-during-the.jpg',
+    addedAt: '2024-12-14T11:45:00Z',
+    quantity: 1,
+    price: 4150,
+    priceRange: '3120 ETB - 5180 ETB'
+  },
+  {
+    id: 'lalibela',
+    type: 'tour',
+    title: 'Rock-Hewn Churches of Lalibela',
+    description: 'Eleven medieval monolithic churches carved directly into the volcanic rock',
+    imageUrl: 'https://media.istockphoto.com/id/530628231/photo/church-of-st-george-unesco-world-heritage-lalibela-ethiopia.jpg',
+    addedAt: '2024-12-08T09:15:00Z',
+    quantity: 2,
+    price: 1500,
+    priceRange: 'Tour booking fee'
+  }
+];
+
 export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<User | null>(defaultUser);
   const [favoriteItems, setFavoriteItems] = useState<FavoriteItem[]>(mockFavoriteItems);
+  const [cartItems, setCartItems] = useState<CartItem[]>(mockCartItems);
 
   const updateUser = (updates: Partial<User>) => {
     if (user) {
@@ -140,12 +173,46 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setUser({ ...user, quizHistory: updatedHistory });
   };
 
-  const getCartItems = () => {
-    if (!user) return [];
-    return favoriteItems.filter(item => {
-      const key = `${item.type}Items` as keyof User['favorites'];
-      return user?.favorites[key].includes(item.id);
+  const getCartItems = () => cartItems;
+
+  const addToCart = (item: CartItem) => {
+    setCartItems(prev => {
+      const existingItem = prev.find(cartItem => cartItem.id === item.id && cartItem.type === item.type);
+      if (existingItem) {
+        return prev.map(cartItem =>
+          cartItem.id === item.id && cartItem.type === item.type
+            ? { ...cartItem, quantity: cartItem.quantity + 1 }
+            : cartItem
+        );
+      }
+      return [...prev, { ...item, quantity: 1 }];
     });
+  };
+
+  const removeFromCart = (itemId: string, type: 'archive' | 'tour' | 'product') => {
+    setCartItems(prev => prev.filter(item => !(item.id === itemId && item.type === type)));
+  };
+
+  const updateCartQuantity = (itemId: string, type: 'archive' | 'tour' | 'product', quantity: number) => {
+    if (quantity <= 0) {
+      removeFromCart(itemId, type);
+      return;
+    }
+    setCartItems(prev =>
+      prev.map(item =>
+        item.id === itemId && item.type === type
+          ? { ...item, quantity }
+          : item
+      )
+    );
+  };
+
+  const clearCart = () => {
+    setCartItems([]);
+  };
+
+  const getCartTotal = () => {
+    return cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
   };
 
   return (
@@ -156,7 +223,12 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
       removeFromFavorites,
       isFavorite,
       addQuizResult,
-      getCartItems
+      getCartItems,
+      addToCart,
+      removeFromCart,
+      updateCartQuantity,
+      clearCart,
+      getCartTotal
     }}>
       {children}
     </UserContext.Provider>

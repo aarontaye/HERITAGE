@@ -12,6 +12,7 @@ export interface User {
     tourSites: string[];
     products: string[];
   };
+  cart: CartItem[];
 }
 
 export interface QuizResult {
@@ -30,4 +31,10 @@ export interface FavoriteItem {
   description: string;
   imageUrl: string;
   addedAt: string;
+}
+
+export interface CartItem extends FavoriteItem {
+  quantity: number;
+  price: number;
+  priceRange?: string;
 }
