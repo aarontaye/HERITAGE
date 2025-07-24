@@ -278,7 +278,7 @@ function App() {
                   ? 'text-emerald-600 bg-emerald-50' 
                   : isDarkMode 
                   ? 'text-gray-400 hover:text-gray-200'
-              onClick={() => setCurrentPage('cart')}
+                  : 'text-gray-600 hover:text-gray-800'
               }`}
             >
               <item.icon size={20} />
