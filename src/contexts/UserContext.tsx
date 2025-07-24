@@ -123,9 +123,20 @@ const mockCartItems: CartItem[] = [
     description: 'Eleven medieval monolithic churches carved directly into the volcanic rock',
     imageUrl: 'https://media.istockphoto.com/id/530628231/photo/church-of-st-george-unesco-world-heritage-lalibela-ethiopia.jpg',
     addedAt: '2024-12-08T09:15:00Z',
-    quantity: 2,
+    quantity: 1,
     price: 1500,
     priceRange: 'Tour booking fee'
+  },
+  {
+    id: '3',
+    type: 'product',
+    title: 'Traditional Silver Necklace',
+    description: 'Filigree silver necklace with traditional Ethiopian motifs',
+    imageUrl: 'https://media.istockphoto.com/id/885749794/photo/ethiopian-cross-necklace-with-old-handmade-glass-beads.jpg',
+    addedAt: '2024-12-13T16:20:00Z',
+    quantity: 2,
+    price: 1225,
+    priceRange: '950 ETB - 1500 ETB'
   }
 ];
 

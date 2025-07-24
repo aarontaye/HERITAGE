@@ -60,7 +60,7 @@ const FavoriteButton: React.FC<FavoriteButtonProps> = ({
       className={`${sizeClasses[size]} rounded-full flex items-center justify-center transition-all duration-200 ${
         isInCart
           ? 'bg-emerald-500 text-white hover:bg-emerald-600'
-          : 'bg-white/80 backdrop-blur-sm text-gray-600 hover:bg-white hover:text-emerald-500'
+          : 'bg-white/90 backdrop-blur-sm text-gray-600 hover:bg-white hover:text-emerald-500 shadow-sm'
       } ${className}`}
       title={isInCart ? 'Remove from cart' : 'Add to cart'}
     >

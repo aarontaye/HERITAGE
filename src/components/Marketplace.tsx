@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import FavoriteButton from './FavoriteButton';
+import { useUser } from '../contexts/UserContext';
 import { 
   ArrowLeft, 
   Star, 
@@ -12,7 +13,10 @@ import {
   List,
   Phone,
   Mail,
-  Award
+  Award,
+  ShoppingCart,
+  Plus,
+  Check
 } from 'lucide-react';
 
 interface Artisan {
@@ -48,11 +52,15 @@ interface MarketplaceProps {
 
 const Marketplace: React.FC<MarketplaceProps> = ({ onBack }) => {
   const [isLoading, setIsLoading] = useState(true);
+  const { addToCart, getCartItems } = useUser();
   const [selectedArtisan, setSelectedArtisan] = useState<Artisan | null>(null);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [addedToCart, setAddedToCart] = useState<Record<string, boolean>>({});
+
+  const cartItems = getCartItems();
 
   const categories = [
     { id: 'all', label: 'All Crafts' },
@@ -166,6 +174,30 @@ const Marketplace: React.FC<MarketplaceProps> = ({ onBack }) => {
       category: 'pottery',
       materials: ['Local Clay', 'Natural Glazes'],
       craftTime: '10 days'
+    },
+    {
+      id: '5',
+      name: 'Handwoven Shawl',
+      description: 'Beautiful traditional shawl with geometric patterns',
+      artisanId: '1',
+      artisanName: 'Almaz Tadesse',
+      price: '800 ETB - 1200 ETB',
+      imageUrl: 'https://images.pexels.com/photos/19113143/pexels-photo-19113143.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      category: 'textiles',
+      materials: ['Cotton', 'Traditional Dyes'],
+      craftTime: '1-2 weeks'
+    },
+    {
+      id: '6',
+      name: 'Carved Wooden Bowl',
+      description: 'Traditional serving bowl carved from olive wood',
+      artisanId: '2',
+      artisanName: 'Bekele Worku',
+      price: '200 ETB - 350 ETB',
+      imageUrl: 'https://images.pexels.com/photos/6207350/pexels-photo-6207350.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      category: 'woodwork',
+      materials: ['Olive Wood', 'Food Safe Finish'],
+      craftTime: '3-5 days'
     }
   ];
 
@@ -188,6 +220,37 @@ const Marketplace: React.FC<MarketplaceProps> = ({ onBack }) => {
                          product.description.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCategory && matchesSearch;
   });
+
+  const handleAddToCart = (product: Product) => {
+    const priceRange = product.price.split(' - ');
+    const avgPrice = priceRange.length === 2 
+      ? (parseInt(priceRange[0].replace(/[^\d]/g, '')) + parseInt(priceRange[1].replace(/[^\d]/g, ''))) / 2
+      : parseInt(product.price.replace(/[^\d]/g, ''));
+
+    const cartItem = {
+      id: product.id,
+      type: 'product' as const,
+      title: product.name,
+      description: product.description,
+      imageUrl: product.imageUrl,
+      addedAt: new Date().toISOString(),
+      quantity: 1,
+      price: avgPrice,
+      priceRange: product.price
+    };
+
+    addToCart(cartItem);
+    setAddedToCart(prev => ({ ...prev, [product.id]: true }));
+    
+    // Reset the added state after 2 seconds
+    setTimeout(() => {
+      setAddedToCart(prev => ({ ...prev, [product.id]: false }));
+    }, 2000);
+  };
+
+  const isInCart = (productId: string) => {
+    return cartItems.some(item => item.id === productId && item.type === 'product');
+  };
 
   const SkeletonCard = () => (
     <div className="bg-white rounded-2xl overflow-hidden shadow-sm animate-pulse">
@@ -260,16 +323,49 @@ const Marketplace: React.FC<MarketplaceProps> = ({ onBack }) => {
           <FavoriteButton item={product} type="product" size="sm" />
         </div>
       </div>
-      <div className="p-4" onClick={() => setSelectedProduct(product)}>
-        <h3 className="font-semibold text-gray-800 mb-1 group-hover:text-emerald-600 transition-colors">
-          {product.name}
-        </h3>
-        <p className="text-gray-600 text-sm mb-2">by {product.artisanName}</p>
-        <p className="text-gray-700 text-sm mb-3 line-clamp-2">{product.description}</p>
-        <div className="flex justify-between items-center">
-          <span className="text-emerald-600 font-semibold">{product.price}</span>
-          <span className="text-xs text-gray-500">{product.craftTime}</span>
+      <div className="p-4">
+        <div onClick={() => setSelectedProduct(product)}>
+          <h3 className="font-semibold text-gray-800 mb-1 group-hover:text-emerald-600 transition-colors">
+            {product.name}
+          </h3>
+          <p className="text-gray-600 text-sm mb-2">by {product.artisanName}</p>
+          <p className="text-gray-700 text-sm mb-3 line-clamp-2">{product.description}</p>
+          <div className="flex justify-between items-center mb-3">
+            <span className="text-emerald-600 font-semibold">{product.price}</span>
+            <span className="text-xs text-gray-500">{product.craftTime}</span>
+          </div>
         </div>
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            handleAddToCart(product);
+          }}
+          disabled={addedToCart[product.id]}
+          className={`w-full py-2 rounded-lg font-medium transition-all duration-200 flex items-center justify-center space-x-2 ${
+            addedToCart[product.id]
+              ? 'bg-green-500 text-white'
+              : isInCart(product.id)
+              ? 'bg-gray-100 text-gray-600 border border-gray-200'
+              : 'bg-emerald-500 text-white hover:bg-emerald-600'
+          }`}
+        >
+          {addedToCart[product.id] ? (
+            <>
+              <Check size={16} />
+              <span>Added to Cart!</span>
+            </>
+          ) : isInCart(product.id) ? (
+            <>
+              <ShoppingCart size={16} />
+              <span>In Cart</span>
+            </>
+          ) : (
+            <>
+              <Plus size={16} />
+              <span>Add to Cart</span>
+            </>
+          )}
+        </button>
       </div>
     </div>
   );
@@ -446,6 +542,37 @@ const Marketplace: React.FC<MarketplaceProps> = ({ onBack }) => {
             <MessageCircle size={16} />
             <span>Contact Artisan</span>
           </button>
+          <button 
+            onClick={(e) => {
+              e.stopPropagation();
+              handleAddToCart(product);
+            }}
+            disabled={addedToCart[product.id]}
+            className={`w-full py-3 rounded-xl font-medium transition-all duration-200 flex items-center justify-center space-x-2 ${
+              addedToCart[product.id]
+                ? 'bg-green-500 text-white'
+                : isInCart(product.id)
+                ? 'bg-gray-100 text-gray-600 border border-gray-200'
+                : 'bg-amber-500 text-white hover:bg-amber-600'
+            }`}
+          >
+            {addedToCart[product.id] ? (
+              <>
+                <Check size={16} />
+                <span>Added to Cart!</span>
+              </>
+            ) : isInCart(product.id) ? (
+              <>
+                <ShoppingCart size={16} />
+                <span>In Cart</span>
+              </>
+            ) : (
+              <>
+                <Plus size={16} />
+                <span>Add to Cart</span>
+              </>
+            )}
+          </button>
         </div>
 
         {/* Artisan Info */}
@@ -467,7 +594,7 @@ const Marketplace: React.FC<MarketplaceProps> = ({ onBack }) => {
               <h4 className="font-medium text-gray-800">{product.artisanName}</h4>
               <p className="text-gray-600 text-sm">{artisans.find(a => a.id === product.artisanId)?.specialty}</p>
             </div>
-            <ChevronRight size={20} className="text-gray-400" />
+            <div className="text-gray-400">→</div>
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import FavoriteButton from './FavoriteButton';
+import { useUser } from '../contexts/UserContext';
 import { 
   ArrowLeft, 
   MapPin, 
@@ -9,7 +10,10 @@ import {
   Play,
   Info,
   Star,
-  ChevronRight
+  ChevronRight,
+  Plus,
+  Check,
+  ShoppingCart
 } from 'lucide-react';
 
 interface TourSite {
@@ -32,8 +36,12 @@ interface VirtualTourProps {
 
 const VirtualTour: React.FC<VirtualTourProps> = ({ onBack }) => {
   const [isLoading, setIsLoading] = useState(true);
+  const { addToCart, getCartItems } = useUser();
   const [selectedSite, setSelectedSite] = useState<TourSite | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [addedToCart, setAddedToCart] = useState<Record<string, boolean>>({});
+
+  const cartItems = getCartItems();
 
   const tourSites: TourSite[] = [
     {
@@ -133,6 +141,32 @@ const VirtualTour: React.FC<VirtualTourProps> = ({ onBack }) => {
     return () => clearTimeout(timer);
   }, []);
 
+  const handleAddToCart = (site: TourSite) => {
+    const cartItem = {
+      id: site.id,
+      type: 'tour' as const,
+      title: site.name,
+      description: site.description,
+      imageUrl: site.imageUrl,
+      addedAt: new Date().toISOString(),
+      quantity: 1,
+      price: 1500, // Tour booking fee
+      priceRange: 'Tour booking fee'
+    };
+
+    addToCart(cartItem);
+    setAddedToCart(prev => ({ ...prev, [site.id]: true }));
+    
+    // Reset the added state after 2 seconds
+    setTimeout(() => {
+      setAddedToCart(prev => ({ ...prev, [site.id]: false }));
+    }, 2000);
+  };
+
+  const isInCart = (siteId: string) => {
+    return cartItems.some(item => item.id === siteId && item.type === 'tour');
+  };
+
   const SkeletonCard = () => (
     <div className="bg-white rounded-2xl overflow-hidden shadow-sm animate-pulse">
       <div className="h-48 bg-gray-200"></div>
@@ -187,6 +221,37 @@ const VirtualTour: React.FC<VirtualTourProps> = ({ onBack }) => {
           </div>
           <span className="text-emerald-600 font-medium">Explore →</span>
         </div>
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            handleAddToCart(site);
+          }}
+          disabled={addedToCart[site.id]}
+          className={`w-full py-2 rounded-lg font-medium transition-all duration-200 flex items-center justify-center space-x-2 ${
+            addedToCart[site.id]
+              ? 'bg-green-500 text-white'
+              : isInCart(site.id)
+              ? 'bg-gray-100 text-gray-600 border border-gray-200'
+              : 'bg-emerald-500 text-white hover:bg-emerald-600'
+          }`}
+        >
+          {addedToCart[site.id] ? (
+            <>
+              <Check size={16} />
+              <span>Added to Cart!</span>
+            </>
+          ) : isInCart(site.id) ? (
+            <>
+              <ShoppingCart size={16} />
+              <span>In Cart</span>
+            </>
+          ) : (
+            <>
+              <Plus size={16} />
+              <span>Book Tour</span>
+            </>
+          )}
+        </button>
       </div>
     </div>
   );
@@ -255,6 +320,36 @@ const VirtualTour: React.FC<VirtualTourProps> = ({ onBack }) => {
           <div className="bg-emerald-50 rounded-xl p-4">
             <h4 className="font-semibold text-emerald-800 mb-2">Cultural Significance</h4>
             <p className="text-emerald-700 text-sm">{site.significance}</p>
+          </div>
+          <div className="mt-4">
+            <button
+              onClick={() => handleAddToCart(site)}
+              disabled={addedToCart[site.id]}
+              className={`w-full py-3 rounded-xl font-medium transition-all duration-200 flex items-center justify-center space-x-2 ${
+                addedToCart[site.id]
+                  ? 'bg-green-500 text-white'
+                  : isInCart(site.id)
+                  ? 'bg-gray-100 text-gray-600 border border-gray-200'
+                  : 'bg-emerald-500 text-white hover:bg-emerald-600'
+              }`}
+            >
+              {addedToCart[site.id] ? (
+                <>
+                  <Check size={16} />
+                  <span>Added to Cart!</span>
+                </>
+              ) : isInCart(site.id) ? (
+                <>
+                  <ShoppingCart size={16} />
+                  <span>In Cart</span>
+                </>
+              ) : (
+                <>
+                  <Plus size={16} />
+                  <span>Book This Tour</span>
+                </>
+              )}
+            </button>
           </div>
         </div>
 
