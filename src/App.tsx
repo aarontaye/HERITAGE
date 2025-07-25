@@ -195,7 +195,8 @@ function App() {
       <main className="px-6 pb-24">
         {/* Featured Banner */}
         <div className="mt-6 mb-8">
-          <div className="relative overflow-hidden rounded-3xl p-8 text-white" style="background: linear-gradient(to right, #86B0B9, #AE9E69, #367EA5);">
+          <div className="relative overflow-hidden rounded-3xl p-8 text-white [background-image:linear-gradient(to_right,#E1E0C9,#367EA5)]
+">
             <div className="relative z-10">
               <h2 className="text-2xl font-bold mb-2">Discover Ethiopia</h2>
               <p className="text-emerald-100 mb-4">Journey through 3,000 years of rich cultural heritage</p>
