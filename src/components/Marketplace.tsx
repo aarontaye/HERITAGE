@@ -127,7 +127,7 @@ const Marketplace: React.FC<MarketplaceProps> = ({ onBack }) => {
       bio: 'Traditional potter creating functional and decorative ceramics using ancient techniques passed down through generations.',
       rating: 4.7,
       reviewCount: 73,
-      imageUrl: 'https://images.pexels.com/photos/30327295/pexels-photo-30327295.jpeg',
+      imageUrl: 'https://images.pexels.com/photos/6275759/pexels-photo-6275759.jpeg',
       crafts: ['Coffee Ceremony Sets', 'Decorative Vases', 'Traditional Bowls'],
       experience: '18+ years',
       verified: false,
