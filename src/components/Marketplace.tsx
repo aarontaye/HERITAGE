@@ -112,7 +112,7 @@ const Marketplace: React.FC<MarketplaceProps> = ({ onBack }) => {
       bio: 'Third-generation silversmith creating traditional Ethiopian jewelry with modern touches. Known for intricate filigree work.',
       rating: 4.9,
       reviewCount: 156,
-      imageUrl: 'https://images.pexels.com/photos/30327295/pexels-photo-30327295.jpeg',
+      imageUrl: 'https://images.pexels.com/photos/13597863/pexels-photo-13597863.jpeg',
       crafts: ['Traditional Necklaces', 'Earrings', 'Bracelets'],
       experience: '15+ years',
       verified: true,
