@@ -195,7 +195,7 @@ function App() {
       <main className="px-6 pb-24">
         {/* Featured Banner */}
         <div className="mt-6 mb-8">
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-emerald-600 via-emerald-500 to-amber-500 p-8 text-white">
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-indigo-600 via-blue-500 to-purple-500 p-8 text-white">
             <div className="relative z-10">
               <h2 className="text-2xl font-bold mb-2">Discover Ethiopia</h2>
               <p className="text-emerald-100 mb-4">Journey through 3,000 years of rich cultural heritage</p>
