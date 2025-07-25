@@ -259,7 +259,8 @@ function App() {
                 These architectural marvels represent one of Ethiopia's greatest treasures and continue 
                 to serve as active places of worship today.
               </p>
-              <button className="w-full bg-gradient-to-r from-emerald-500 to-amber-500 text-white py-3 rounded-xl font-medium hover:shadow-lg transition-all duration-300">
+              <button className="w-full [background-image:linear-gradient(to_right,#E1E0C9,#367EA5)] text-white py-3 rounded-xl font-medium hover:shadow-lg transition-all duration-300
+">
                 Learn More
               </button>
             </div>
