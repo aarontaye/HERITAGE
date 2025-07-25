@@ -82,7 +82,7 @@ const Marketplace: React.FC<MarketplaceProps> = ({ onBack }) => {
       bio: 'Master weaver with 25 years of experience creating traditional Ethiopian textiles. Specializes in handwoven cotton and silk fabrics with intricate patterns.',
       rating: 4.9,
       reviewCount: 127,
-      imageUrl: 'https://images.pexels.com/photos/30327295/pexels-photo-30327295.jpeg',
+      imageUrl: 'https://images.pexels.com/photos/17464867/pexels-photo-17464867.jpeg',
       crafts: ['Habesha Kemis', 'Netela', 'Traditional Scarves'],
       experience: '25+ years',
       verified: true,
