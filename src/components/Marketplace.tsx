@@ -97,7 +97,7 @@ const Marketplace: React.FC<MarketplaceProps> = ({ onBack }) => {
       bio: 'Renowned wood carver creating religious artifacts and decorative pieces. His work is inspired by the ancient churches of Lalibela.',
       rating: 4.8,
       reviewCount: 89,
-      imageUrl: 'https://images.pexels.com/photos/30327295/pexels-photo-30327295.jpeg',
+      imageUrl: 'https://images.pexels.com/photos/8197946/pexels-photo-8197946.jpeg',
       crafts: ['Religious Crosses', 'Decorative Panels', 'Traditional Furniture'],
       experience: '20+ years',
       verified: true,
