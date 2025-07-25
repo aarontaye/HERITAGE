@@ -228,11 +228,11 @@ const VirtualTour: React.FC<VirtualTourProps> = ({ onBack }) => {
           }}
           disabled={addedToCart[site.id]}
           className={`w-full py-2 rounded-lg font-medium transition-all duration-200 flex items-center justify-center space-x-2 ${
-            addedToCart[site.id]
-              ? 'bg-green-500 text-white'
-              : isInCart(site.id)
-              ? 'bg-gray-100 text-gray-600 border border-gray-200'
-              : 'bg-emerald-500 text-white hover:bg-emerald-600'
+  addedToCart[site.id]
+    ? 'bg-green-500 text-white'
+    : isInCart(site.id)
+    ? 'bg-gray-100 text-gray-600 border border-gray-200'
+    : '[background-image:linear-gradient(to_right,#E1E0C9,#367EA5)] text-white'
           }`}
         >
           {addedToCart[site.id] ? (
