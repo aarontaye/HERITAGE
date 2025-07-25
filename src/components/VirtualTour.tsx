@@ -397,7 +397,8 @@ const VirtualTour: React.FC<VirtualTourProps> = ({ onBack }) => {
 
       {/* Featured Tour Banner */}
       <div className="px-6 py-4">
-        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-emerald-600 to-amber-500 p-6 text-white mb-6">
+        <div className="relative overflow-hidden rounded-2xl [background-image:linear-gradient(to_right,#E1E0C9,#367EA5)] p-6 text-white mb-6
+">
           <div className="relative z-10">
             <div className="flex items-center space-x-2 mb-2">
               <Camera size={20} />
