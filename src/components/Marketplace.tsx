@@ -356,7 +356,7 @@ const Marketplace: React.FC<MarketplaceProps> = ({ onBack }) => {
               ? 'bg-green-500 text-white'
               : isInCart(product.id)
               ? 'bg-gray-100 text-gray-600 border border-gray-200'
-              : 'bg-emerald-500 text-white hover:bg-emerald-600'
+              : 'bg-emerald-500 text-white hover:bg-emerald-6000'
           }`}
         >
           {addedToCart[product.id] ? (
