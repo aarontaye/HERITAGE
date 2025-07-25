@@ -73,35 +73,35 @@ function App() {
   };
 
   const categories = [
-    {
-      id: 'historical',
-      title: 'Historical Sites',
-      icon: Mountain,
-      color: 'bg-emerald-500',
-      description: 'Ancient wonders'
-    },
-    {
-      id: 'manuscripts',
-      title: 'Ancient Manuscripts',
-      icon: ScrollText,
-      color: 'bg-amber-500',
-      description: 'Sacred texts'
-    },
-    {
-      id: 'arts',
-      title: 'Arts & Crafts',
-      icon: Palette,
-      color: 'bg-rose-500',
-      description: 'Traditional crafts'
-    },
-    {
-      id: 'language',
-      title: 'Language Learning',
-      icon: Languages,
-      color: 'bg-blue-500',
-      description: 'Learn Amharic'
-    }
-  ];
+  {
+    id: 'tour',
+    title: 'Historical Sites',
+    icon: Mountain,
+    color: 'bg-emerald-500',
+    description: 'Ancient wonders'
+  },
+  {
+    id: 'manuscripts',
+    title: 'Ancient Manuscripts',
+    icon: ScrollText,
+    color: 'bg-amber-500',
+    description: 'Sacred texts'
+  },
+  {
+    id: 'arts',
+    title: 'Arts & Crafts',
+    icon: Palette,
+    color: 'bg-rose-500',
+    description: 'Traditional crafts'
+  },
+  {
+    id: 'language',
+    title: 'Language Learning',
+    icon: Languages,
+    color: 'bg-blue-500',
+    description: 'Learn Amharic'
+  }
+];
 
   const navigationItems = [
     { id: 'home', label: 'Home', icon: Home },
