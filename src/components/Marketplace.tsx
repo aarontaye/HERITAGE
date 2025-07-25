@@ -351,14 +351,13 @@ const Marketplace: React.FC<MarketplaceProps> = ({ onBack }) => {
             handleAddToCart(product);
           }}
           disabled={addedToCart[product.id]}
-className={`w-full py-3 rounded-xl font-medium transition-all duration-200 flex items-center justify-center space-x-2 ${
+          className={`w-full py-3 rounded-xl font-medium transition-all duration-200 flex items-center justify-center space-x-2 ${
   addedToCart[product.id]
     ? 'bg-green-500 text-white'
     : isInCart(product.id)
     ? 'bg-gray-100 text-gray-600 border border-gray-200'
     : 'bg-emerald-500 text-white hover:bg-emerald-600'
-}`}
-
+          }`}
         >
           {addedToCart[product.id] ? (
             <>
