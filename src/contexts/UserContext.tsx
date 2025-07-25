@@ -110,7 +110,7 @@ const mockCartItems: CartItem[] = [
     type: 'product',
     title: 'Handwoven Habesha Kemis',
     description: 'Traditional Ethiopian dress with intricate border patterns',
-    imageUrl: 'https://media.istockphoto.com/id/2195463329/photo/traditional-ethiopian-kemis-a-white-dress-with-colorful-embroidery-worn-by-women-during-the.jpg',
+    imageUrl: 'https://media.istockphoto.com/id/2195463329/photo/traditional-ethiopian-kemis-a-white-dress-with-colorful-embroidery-worn-by-women-during-the.jpg?b=1&s=612x612&w=0&k=20&c=yjJxJyZubvwdDc0oMLOZ_K7XfBj0UliP9Ag6c6x0uWk=',
     addedAt: '2024-12-14T11:45:00Z',
     quantity: 1,
     price: 4150,
