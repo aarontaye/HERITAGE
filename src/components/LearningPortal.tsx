@@ -301,8 +301,6 @@ const generateCourseLevels = (courseId: string): CourseLevel[] => {
       content: 'እንኳን ለመጨረሻው ደረጃ በተሳካ ሁኔታ ተደርሳችሁ! ይህ ደረጃ ሁሉንም የተማሩትን በማቅረብ ወደ መረጃ ጥልቅ ደረጃ ያመራችሁ።'
     }
   ];
-};
-
 
     const levels = levelTemplates[courseId as keyof typeof levelTemplates] || defaultLevels;
     
