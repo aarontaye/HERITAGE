@@ -144,43 +144,44 @@ const LearningPortal: React.FC<LearningPortalProps> = ({ onBack }) => {
     }
   ];
 
-  const quizzes: Quiz[] = [
-    {
-      id: '1',
-      question: 'What is the capital city of Ethiopia?',
-      options: ['Addis Ababa', 'Lalibela', 'Axum', 'Gondar'],
-      correctAnswer: 0,
-      explanation: 'Addis Ababa, meaning "new flower" in Amharic, has been Ethiopia\'s capital since 1886.'
-    },
-    {
-      id: '2',
-      question: 'Which ancient kingdom is considered the birthplace of Ethiopian civilization?',
-      options: ['Zagwe', 'Solomonic', 'Axum', 'Shewa'],
-      correctAnswer: 2,
-      explanation: 'The Kingdom of Axum (1st-8th century AD) was a major trading empire and is considered the foundation of Ethiopian civilization.'
-    },
-    {
-      id: '3',
-      question: 'What is the traditional Ethiopian coffee ceremony called?',
-      options: ['Buna', 'Tej', 'Injera', 'Berbere'],
-      correctAnswer: 0,
-      explanation: 'Buna is the traditional Ethiopian coffee ceremony, an important social and cultural ritual.'
-    },
-    {
-      id: '4',
-      question: 'Which script is used for writing Amharic?',
-      options: ['Latin', 'Arabic', 'Ge\'ez', 'Cyrillic'],
-      correctAnswer: 2,
-      explanation: 'Amharic uses the Ge\'ez script (Fidel), an ancient writing system with over 200 characters.'
-    },
-    {
-      id: '5',
-      question: 'The Rock-Hewn Churches of Lalibela were built in which century?',
-      options: ['10th Century', '12th Century', '14th Century', '16th Century'],
-      correctAnswer: 1,
-      explanation: 'The churches were carved in the 12th century during the reign of King Lalibela.'
-    }
-  ];
+ const quizzes: Quiz[] = [
+  {
+    id: '1',
+    question: 'የኢትዮጵያ ዋና ከተማ የት ናት?',
+    options: ['አዲስ አበባ', 'ላሊበላ', 'አክሱም', 'ጎንደር'],
+    correctAnswer: 0,
+    explanation: 'አዲስ አበባ "አዲስ አበባ" ማለት ሲሆን ከ 1886 ጀምሮ የኢትዮጵያ ዋና ከተማ ናት።'
+  },
+  {
+    id: '2',
+    question: 'የኢትዮጵያን ሥርዓተ ባህል መጀመሪያ የታወቀው የታሪክ መንግስት የትኛው ነው?',
+    options: ['ዛግዌ', 'ሰሎሞናዊ', 'አክሱም', 'ሸዋ'],
+    correctAnswer: 2,
+    explanation: 'የአክሱም መንግስት (1ኛ – 8ኛ ክፍለ ዘመን) ታላቅ የንግድ መንግስት ነበር እና የኢትዮጵያ ሥርዓተ ባህል መሠረት ተብሏል።'
+  },
+  {
+    id: '3',
+    question: 'የባህላዊ ኢትዮጵያ የቡና ሥነ ሥርዓት ምን ተብሎ ይጠራል?',
+    options: ['ቡና', 'ጠጅ', 'እንጀራ', 'በርበሬ'],
+    correctAnswer: 0,
+    explanation: 'ቡና ባህላዊ የኢትዮጵያ እና ማህበራዊ ሥነ-ሥርዓት ነው።'
+  },
+  {
+    id: '4',
+    question: 'አማርኛን ለመጻፍ የሚጠቀመው ፊደል የትኛው ነው?',
+    options: ['ላቲን', 'ዓረብ', 'ግእዝ', 'ሲሪሊክ'],
+    correctAnswer: 2,
+    explanation: 'አማርኛ በ200 በላይ ቁምፊዎች ያሉትን የግእዝ ፊደል (ፊደል) ትጠቀማለች።'
+  },
+  {
+    id: '5',
+    question: 'የላሊበላ የድንጋይ ቤተ ክርስቲያናት በምን ክፍለ ዘመን ተገነቡ?',
+    options: ['10ኛ ክፍለ ዘመን', '12ኛ ክፍለ ዘመን', '14ኛ ክፍለ ዘመን', '16ኛ ክፍለ ዘመን'],
+    correctAnswer: 1,
+    explanation: 'የላሊበላ ቤተ ክርስቲያናት በ12ኛው ክፍለ ዘመን በንጉስ ላሊበላ ዘመን ተተነሱ።'
+  }
+];
+
 
   useEffect(() => {
     const timer = setTimeout(() => {
