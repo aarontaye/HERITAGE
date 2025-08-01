@@ -189,38 +189,120 @@ const LearningPortal: React.FC<LearningPortalProps> = ({ onBack }) => {
     return () => clearTimeout(timer);
   }, []);
 
-  const generateCourseLevels = (courseId: string): CourseLevel[] => {
-    const levelTemplates = {
-      '1': [ // Amharic for Beginners
-        { title: 'Introduction to Amharic', description: 'Learn the basics of Ethiopian language', content: 'Welcome to Amharic! Amharic is the official language of Ethiopia, spoken by over 25 million people. In this level, you\'ll learn about the history of the language, its importance in Ethiopian culture, and basic pronunciation rules.' },
-        { title: 'Ge\'ez Script Basics', description: 'Understanding the writing system', content: 'The Amharic language uses the Ge\'ez script, also known as Fidel. This ancient writing system has over 200 characters. We\'ll start with the basic consonants and vowel modifications.' },
-        { title: 'Common Greetings', description: 'Essential phrases for daily interaction', content: 'Learn essential greetings: Selam (Hello), Dehna neh? (How are you?), Ameseginalehu (Thank you), and other common phrases used in daily Ethiopian conversations.' },
-        { title: 'Numbers and Time', description: 'Counting and telling time in Amharic', content: 'Master numbers 1-100 in Amharic and learn how to tell time. Understanding the Ethiopian calendar system and time expressions will help you navigate daily conversations.' },
-        { title: 'Family and Relationships', description: 'Vocabulary for family members and social connections', content: 'Learn words for family members, relationships, and social connections. This vocabulary is essential for describing your family and understanding Ethiopian social structures.' }
-      ],
-      '2': [ // Ancient Ethiopian History
-        { title: 'Origins of Ethiopian Civilization', description: 'The dawn of human civilization in Ethiopia', content: 'Ethiopia is often called the cradle of humanity. Archaeological evidence shows that early humans lived in Ethiopia over 3 million years ago. Learn about Lucy (Dinkinesh) and other important archaeological discoveries.' },
-        { title: 'The Kingdom of Axum', description: 'Ethiopia\'s first great empire', content: 'The Axumite Kingdom (1st-8th century AD) was one of the great civilizations of the ancient world. It controlled important trade routes and was among the first nations to adopt Christianity.' },
-        { title: 'Medieval Period and Zagwe Dynasty', description: 'The builders of Lalibela', content: 'The Zagwe Dynasty (12th-13th centuries) created the magnificent rock-hewn churches of Lalibela. Learn about King Lalibela and the religious significance of these architectural marvels.' },
-        { title: 'The Solomonic Dynasty', description: 'Claiming descent from King Solomon', content: 'The Solomonic Dynasty claimed descent from King Solomon and the Queen of Sheba. This period saw the expansion of Ethiopian territory and the development of unique cultural traditions.' },
-        { title: 'Modern Ethiopia', description: 'From empire to modern nation', content: 'Learn about Ethiopia\'s resistance to colonialism, the reign of Emperor Haile Selassie, the Derg period, and the formation of modern Ethiopia as a federal democratic republic.' }
-      ],
-      '3': [ // Ethiopian Coffee Culture
-        { title: 'The Legend of Coffee Discovery', description: 'How coffee was discovered in Ethiopia', content: 'According to legend, a goat herder named Kaldi discovered coffee when he noticed his goats becoming energetic after eating certain berries. Ethiopia is considered the birthplace of coffee.' },
-        { title: 'Coffee Growing Regions', description: 'Ethiopia\'s diverse coffee landscapes', content: 'Ethiopia has several distinct coffee-growing regions: Sidamo, Yirgacheffe, Harrar, and others. Each region produces coffee with unique flavor profiles influenced by altitude, climate, and soil.' },
-        { title: 'The Coffee Ceremony', description: 'Sacred ritual of coffee preparation', content: 'The Ethiopian coffee ceremony is a social and spiritual ritual. It involves roasting green coffee beans, grinding them by hand, and brewing in a clay pot called a jebena. The ceremony can take hours and brings communities together.' },
-        { title: 'Coffee in Ethiopian Society', description: 'Cultural significance and daily life', content: 'Coffee plays a central role in Ethiopian social life. It\'s served at important occasions, used in conflict resolution, and is an integral part of hospitality. Learn about coffee\'s role in Ethiopian culture.' },
-        { title: 'From Bean to Cup', description: 'Traditional processing methods', content: 'Learn about traditional Ethiopian coffee processing methods, from harvesting the cherries to the final cup. Understand the difference between washed and natural processing and how it affects flavor.' }
-      ]
-    };
+const generateCourseLevels = (courseId: string): CourseLevel[] => {
+  const levelTemplates = {
+    '1': [ // Amharic for Beginners
+      {
+        title: 'አማርኛ መግቢያ',
+        description: 'የኢትዮጵያ ቋንቋ መሰረቶችን ማማረም',
+        content: 'እንኳን ወደ አማርኛ በደህና መጡ! አማርኛ በኢትዮጵያ የተናገረ እና የኢትዮጵያ መንግስታዊ ቋንቋ ናት፣ ከ25 ሚሊዮን በላይ ሰዎች ይናገራታሉ። በዚህ ደረጃ የቋንቋውን ታሪክ፣ ባህላዊ አስፈላጊነቷን፣ እና መነሻ ነገሮችን ትማማላችሁ።'
+      },
+      {
+        title: 'የግእዝ ፊደል መሰረቶች',
+        description: 'የመጻፍ ስርዓቱን መረዳት',
+        content: 'አማርኛ ቋንቋ የግእዝ ፊደልን ተጠቃሚ ትናገራለች፣ ይህ የታመነ ፊደል በ200 በላይ ቁምፊዎች ያሉት ፅሁፍ ስርዓት ነው። መጀመሪያ የዋና ፊደላትን እና የቃላት ልውውጥ እንጀምራለን።'
+      },
+      {
+        title: 'የተለመዱ ሰላማታዎች',
+        description: 'በዕለታዊ ንግግር ውስጥ የሚሠሩ አስፈላጊ ንባቡዎች',
+        content: 'የተለመዱ ሰላማታዎችን ይማሩ፡ Selam (ሰላም), Dehna neh? (እንዴት ነህ/ነሽ?), Ameseginalehu (አመሰግናለሁ) እና ሌሎችም የዕለታዊ እንቅስቃሴ ቃላት።'
+      },
+      {
+        title: 'ቁጥሮች እና ሰዓት',
+        description: 'ቁጥሮችን መቆጠር እና ሰዓትን መናገር',
+        content: '1 እስከ 100 ድረስ ቁጥሮችን በአማርኛ ይማሩ እና ሰዓትን መናገር ይማሩ። የኢትዮጵያ የቀን እና የሰዓት ስርዓት እንዴት እንደሚሰራ ይረዱ።'
+      },
+      {
+        title: 'ቤተሰብ እና ግንኙነቶች',
+        description: 'የቤተሰብ እና እርስ በእርስ ግንኙነቶች መዝገበ ቃላት',
+        content: 'የቤተሰብ አባላትን፣ የእርስ በእርስ ግንኙነቶችን እና ማህበራዊ ተዋዋዮችን የሚገልጹ ቃላትን ይማሩ።'
+      }
+    ],
+    '2': [ // Ancient Ethiopian History
+      {
+        title: 'የኢትዮጵያ ሥርዓተ ባህል መነሻ',
+        description: 'የሰው ሕይወት መነሻ በኢትዮጵያ',
+        content: 'ኢትዮጵያ የሰው ሕይወት እና ሥርዓተ ባህል አነስተኛ ቦታ ተብላ ትታወቃለች። የአርኬኦሎጂ ምልክቶች ከ3 ሚሊዮን ዓመታት በፊት ሰዎች በኢትዮጵያ እንደኖሩ ያመለከቱበት ይሆናል።'
+      },
+      {
+        title: 'የአክሱም መንግስት',
+        description: 'የመጀመሪያው ታላቅ መንግስት',
+        content: 'የአክሱም መንግስት (1ኛ - 8ኛ ክፍለ ዘመን) ከዓለም ታላቅ ሥርዓተ መንግስቶች አንዱ ነበር። ከተለያዩ ንግድ መንገዶች ቁልፍ ተቆጣጣሪ ነበረ።'
+      },
+      {
+        title: 'የዛግዌ ንጉሥነት እና መካከለኛው ዘመን',
+        description: 'የላሊበላ ቤተ ክርስቲያናት ገነባብት',
+        content: 'የዛግዌ ንጉሥነት (12ኛ - 13ኛ ክፍለ ዘመን) የላሊበላ ድንጋይ ቤተ ክርስቲያናትን ገነባበት። ንጉስ ላሊበላን እና እርሱ ከተነሳ የተፈጠሩትን ቤተ ክርስቲያናት የመንፈሳዊ እና ታሪካዊ እሴት ያነጋግራሉ።'
+      },
+      {
+        title: 'የሰሎሞናዊ ንጉሥነት',
+        description: 'ከንጉሥ ሰሎሞን የተዋረደ ትውልድ',
+        content: 'የሰሎሞናዊ ንጉሥነት የንጉሥ ሰሎሞንና የሳባ ንግሥት የሆነ ትውልድ ነበር። ይህ ዘመን የኢትዮጵያ መሬት እና ባህላዊ ልማቶችን በጣም እያሳደጠ ነበር።'
+      },
+      {
+        title: 'ዘመናዊ ኢትዮጵያ',
+        description: 'ከንጉሥነት ወደ ዘመናዊ መንግሥት',
+        content: 'ኢትዮጵያ በኮሎኒኤሊዝም የተቃወመች ነች። የንጉሥ ኃይለ ሥላሴ መንግሥት፣ የደርግ ዘመን እና ዛሬ እንደ ፌዴራል ዴሞክራሲያዊ ሪፐብሊክ የተቋቋመች ኢትዮጵያ እንዴት እንደተቆለፈች ይወቁ።'
+      }
+    ],
+    '3': [ // Ethiopian Coffee Culture
+      {
+        title: 'የቡና አግኝት ታሪክ',
+        description: 'ቡና በኢትዮጵያ እንዴት እንደተገኘ',
+        content: 'እንደተሰኘ ታሪክ፣ አንድ የፍየል እረኛ ካልዲ ቡናን በፍየሎቹ ከበላ በኋላ እንቅስቃሴ መኖር ተገነዘበ። ኢትዮጵያ የቡና እንደመነሻ ስፍራ ታወቀች።'
+      },
+      {
+        title: 'የቡና አካባቢዎች',
+        description: 'በኢትዮጵያ የተለያዩ የቡና አካባቢዎች',
+        content: 'የሲዳሞ፣ የይርጋቸፍ፣ የሐረር እና ሌሎች አካባቢዎች ከቡና በተለያዩ ጣዕሞች ይታወቃሉ።'
+      },
+      {
+        title: 'የቡና ሥነ-ሥርዓት',
+        description: 'የቡናን የመነጽር ሥነ-ሥርዓት',
+        content: 'የኢትዮጵያ የቡና ሥነ-ሥርዓት አስፈላጊ የማህበረሰብ ቅድመ ቅዱስ ሥነ ሥርዓት ነው። ቡና መቀጠል፣ መረጨት እና በጀቤና ማቀናበር ይካሄዳል።'
+      },
+      {
+        title: 'ቡና በኢትዮጵያ ህይወት ውስጥ',
+        description: 'በህይወት ውስጥ ያለው ትርጉም',
+        content: 'ቡና በኢትዮጵያ ማህበረሰብ ውስጥ አስፈላጊ ቦታ ያላት ነው። በተለያዩ አመታዊ ሥነ ስርዓቶች ውስጥ ይጠቀማል።'
+      },
+      {
+        title: 'ከአቡና እስከ መጠጣት',
+        description: 'የባህላዊ ማቀናበሪያ ዘዴዎች',
+        content: 'ከቡና መሰብሰብ ጀምሮ እስከ መጠጣት ድረስ ባህላዊ ዘዴዎችን ይወቁ። የተታጠቀ እና የተፈጨ እንዴት በጣም የተለያዩ ጣዕሞች ላይ እንደሚተጋ ይማሩ።'
+      }
+    ]
+  };
 
-    const defaultLevels = [
-      { title: 'Introduction', description: 'Getting started with the basics', content: 'Welcome to this comprehensive course! In this introductory level, we\'ll cover the fundamental concepts and provide you with a solid foundation for your learning journey.' },
-      { title: 'Core Concepts', description: 'Understanding the main principles', content: 'Now that you have the basics, let\'s dive deeper into the core concepts. This level will build upon your foundation and introduce more complex ideas and principles.' },
-      { title: 'Practical Applications', description: 'Applying what you\'ve learned', content: 'It\'s time to put theory into practice! This level focuses on real-world applications and hands-on exercises to reinforce your understanding.' },
-      { title: 'Advanced Topics', description: 'Exploring deeper knowledge', content: 'Ready for more advanced material? This level covers sophisticated topics and prepares you for expert-level understanding of the subject matter.' },
-      { title: 'Mastery', description: 'Achieving expertise', content: 'Congratulations on reaching the final level! Here we\'ll consolidate everything you\'ve learned and explore the most advanced aspects of the topic.' }
-    ];
+  const defaultLevels = [
+    {
+      title: 'መግቢያ',
+      description: 'በመሰረቱ መጀመሪያ ማስተላለፊያ',
+      content: 'እንኳን ደህና መጡ! በዚህ የመግቢያ ደረጃ ዋና ፍላጎቶችን እና መሰረታዊ ግንዛቤዎችን እናቀርባለን።'
+    },
+    {
+      title: 'ዋና ግንዛቤዎች',
+      description: 'መሰረቶቹን በዝርዝር መገንዘብ',
+      content: 'መጀመሪያ ግንዛቤዎችን ካገኙ በኋላ አሁን ወደ ውስጣዊ ዝርዝሮች እንቀጥላለን።'
+    },
+    {
+      title: 'በእውነተኛው ሁኔታ ላይ መተግበር',
+      description: 'ያሰማራችሁትን በተግባር መተግበር',
+      content: 'አሁን የተማሩትን በተግባር እንደት እንደሚያገለግሉ ይማሩ።'
+    },
+    {
+      title: 'የላቀ ርዕሶች',
+      description: 'ወደ ብልህነት መድረስ',
+      content: 'ለብልህ የሆነ አስተዋይ ማስተዋል ዝርዝሮችን እንመልከት።'
+    },
+    {
+      title: 'መብት መጠን',
+      description: 'ወደ ሙሉ ብዛት መድረስ',
+      content: 'እንኳን ለመጨረሻው ደረጃ በተሳካ ሁኔታ ተደርሳችሁ! ይህ ደረጃ ሁሉንም የተማሩትን በማቅረብ ወደ መረጃ ጥልቅ ደረጃ ያመራችሁ።'
+    }
+  ];
+};
+
 
     const levels = levelTemplates[courseId as keyof typeof levelTemplates] || defaultLevels;
     
